@@ -1,0 +1,25 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/community-async-openapi-original.yml
+summary:
+  types:
+  - http
+  - oauth2
+  oauth2_flows:
+  - authorizationCode
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  sources:
+  - openapi/community-async-openapi-original.yml
+- name: oAuth
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://oauth-login.community.com/
+    tokenUrl: /oauth/v1/token
+    scopes: 0
+  sources:
+  - openapi/community-async-openapi-original.yml
