@@ -1,0 +1,115 @@
+openapi: 3.0.3
+info:
+  title: Async REST member-data messaging API
+  description: API for Community clients to manage their subscribers, send messages, and more.
+  version: 0.1.0
+  contact:
+    email: saleseng@community.com
+servers:
+- url: https://{environment}.community.com/webhooks/{version}/community/{client_id}
+  variables:
+    environment:
+      enum:
+      - api
+      default: api
+    version:
+      enum:
+      - v1
+      default: v1
+    client_id:
+      default: <client_id>
+      description: Community Account's client_id
+security:
+- bearerAuth: []
+- oAuth: []
+tags:
+- name: messaging
+paths:
+  /message_send:
+    post:
+      tags:
+      - messaging
+      summary: Send Direct Message
+      operationId: send-message
+      responses:
+        '202':
+          description: Accepted
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '415':
+          description: Unsupported media type
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/message_send'
+            examples:
+              NoQuietHours:
+                value:
+                  phone_number: '15557771212'
+                  communication_channel: sms
+                  text: Hello there, I hope you are having a good day.
+              QuietHoursOverride:
+                value:
+                  phone_number: '15557771212'
+                  communication_channel: sms
+                  text: Hello there, I hope you are having a good evening.
+                  override_quiet_hours: true
+components:
+  schemas:
+    NumberString:
+      type: string
+      pattern: ^\d+$
+    Boolean:
+      type: boolean
+    PhoneNumber:
+      description: include country code
+      type: string
+      allOf:
+      - $ref: '#/components/schemas/NumberString'
+    message_send:
+      type: object
+      required:
+      - phone_number
+      - text
+      properties:
+        phone_number:
+          $ref: '#/components/schemas/PhoneNumber'
+        communication_channel:
+          $ref: '#/components/schemas/CommunicationChannel'
+        text:
+          $ref: '#/components/schemas/String400'
+        override_quiet_hours:
+          $ref: '#/components/schemas/Boolean'
+    NonEmptyString:
+      type: string
+      pattern: \S
+    String400:
+      type: string
+      allOf:
+      - $ref: '#/components/schemas/NonEmptyString'
+      - maxLength: 400
+    CommunicationChannel:
+      description: only sms and whatsapp are supported at the moment.
+      type: string
+      enum:
+      - sms
+      - whatsapp
+      default: sms
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    oAuth:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://oauth-login.community.com/
+          scopes: {}
+          tokenUrl: /oauth/v1/token

@@ -1,0 +1,308 @@
+openapi: 3.0.3
+info:
+  title: Async REST member-data API
+  description: API for Community clients to manage their subscribers, send messages, and more.
+  version: 0.1.0
+  contact:
+    email: saleseng@community.com
+servers:
+- url: https://{environment}.community.com/webhooks/{version}/community/{client_id}
+  variables:
+    environment:
+      enum:
+      - api
+      default: api
+    version:
+      enum:
+      - v1
+      default: v1
+    client_id:
+      default: <client_id>
+      description: Community Account's client_id
+security:
+- bearerAuth: []
+- oAuth: []
+tags:
+- name: member-data
+paths:
+  /subscription_create:
+    post:
+      tags:
+      - member-data
+      summary: Invite / Update Member
+      operationId: upsert-member
+      responses:
+        '202':
+          description: Accepted
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/subscription_create'
+  /subscription_field_value_modify:
+    post:
+      tags:
+      - member-data
+      summary: Upsert Custom Member Data
+      operationId: upsert-member-custom-data
+      responses:
+        '202':
+          description: Accepted
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/subscription_field_value_modify'
+  /subscription_opt_out:
+    post:
+      tags:
+      - member-data
+      summary: Member Opt-Out
+      operationId: opt-out-member
+      responses:
+        '202':
+          description: Accepted
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/subscription_opt_out'
+  /subscription_tag_modify:
+    post:
+      tags:
+      - member-data
+      summary: Add / Remove Member from Subcommunity
+      description: You can either pass in the subcommunity ID (`tag_id`) or the `tag` name. If you provide both, `tag_id` takes precedence.
+      operationId: change-community-membership
+      responses:
+        '202':
+          description: Accepted
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '415':
+          description: Unsupported media type
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/subscription_tag_modify'
+components:
+  schemas:
+    NumberString:
+      type: string
+      pattern: ^\d+$
+    tag_id:
+      type: object
+      properties:
+        tag_id:
+          $ref: '#/components/schemas/UUID'
+    UUID:
+      type: string
+      format: uuid
+    Geolocation:
+      type: object
+      required:
+      - latitude
+      - longitude
+      properties:
+        latitude:
+          $ref: '#/components/schemas/Latitude'
+        longitude:
+          $ref: '#/components/schemas/Longitude'
+    NonEmptyString:
+      type: string
+      pattern: \S
+    subscription_tag_modify:
+      type: object
+      required:
+      - phone_number
+      - operation
+      anyOf:
+      - $ref: '#/components/schemas/tag_id'
+      - $ref: '#/components/schemas/tag_name'
+      properties:
+        phone_number:
+          $ref: '#/components/schemas/PhoneNumber'
+        communication_channel:
+          $ref: '#/components/schemas/CommunicationChannel'
+        operation:
+          type: string
+          enum:
+          - add
+          - remove
+    subscription_field_value_modify:
+      description: At the moment we accept all primitive types, except for null
+      type: object
+      required:
+      - phone_number
+      - custom_fields
+      properties:
+        phone_number:
+          $ref: '#/components/schemas/PhoneNumber'
+        communication_channel:
+          $ref: '#/components/schemas/CommunicationChannel'
+        custom_fields:
+          type: object
+    PhoneNumber:
+      description: include country code
+      type: string
+      allOf:
+      - $ref: '#/components/schemas/NumberString'
+    tag_name:
+      type: object
+      properties:
+        tag:
+          $ref: '#/components/schemas/String60'
+    Longitude:
+      type: number
+      minimum: -180
+      maximum: 180
+    subscription_create:
+      type: object
+      required:
+      - phone_number
+      properties:
+        phone_number:
+          $ref: '#/components/schemas/PhoneNumber'
+        communication_channel:
+          $ref: '#/components/schemas/CommunicationChannel'
+        given_name:
+          type: string
+          maxLength: 255
+          pattern: \S
+        surname:
+          type: string
+          maxLength: 255
+          pattern: \S
+        email:
+          type: string
+          maxLength: 255
+          pattern: ^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$
+        city:
+          type: string
+          maxLength: 255
+          pattern: \S
+        state_or_province:
+          type: string
+          maxLength: 255
+          pattern: \S
+        state_or_province_abbreviation:
+          type: string
+          minLength: 2
+          maxLength: 3
+          pattern: ^[A-Z]+$
+        country:
+          type: string
+          maxLength: 255
+          pattern: \S
+        country_code:
+          type: string
+          pattern: ^[A-Z]{2}$
+        postal_code:
+          type: string
+          maxLength: 10
+          pattern: ^[0-9A-Z]+[ -]?[0-9A-Z]+$
+        geolocation:
+          type: object
+          default: {}
+          $ref: '#/components/schemas/Geolocation'
+        date_of_birth:
+          type: string
+          description: Must be supplied in "YYYY-MM-DD" format.
+          pattern: ^\d{4}-\d{2}-\d{2}$
+        gender_identity:
+          type: string
+          enum:
+          - ''
+          - male
+          - female
+          - non-binary
+          - no-answer
+        tags:
+          type: array
+          description: A list of tag names (Subcommunities) to add the Member to
+          items:
+            type: string
+            maxLength: 60
+        activation_mode:
+          type: string
+          enum:
+          - web
+          - text
+          - preopt
+          description: 'Controls how the subscriber is activated.
+
+
+            `web` — subscriber is created in a pending state and must complete the Frost registration form.
+
+
+            `text` — subscriber is created in a pending state and must reply Y to confirm (Reply-Y flow).
+
+
+            `preopt` — subscriber is immediately activated without requiring further action; requires the API Pre-Opt feature to be enabled for your account by Community.
+
+
+            When omitted, the activation mode is determined by the account''s source configuration.'
+    String60:
+      type: string
+      allOf:
+      - $ref: '#/components/schemas/NonEmptyString'
+      - maxLength: 60
+    Latitude:
+      type: number
+      minimum: -90
+      maximum: 90
+    subscription_opt_out:
+      type: object
+      required:
+      - phone_number
+      properties:
+        phone_number:
+          $ref: '#/components/schemas/PhoneNumber'
+        communication_channel:
+          $ref: '#/components/schemas/CommunicationChannel'
+    CommunicationChannel:
+      description: only sms and whatsapp are supported at the moment.
+      type: string
+      enum:
+      - sms
+      - whatsapp
+      default: sms
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    oAuth:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://oauth-login.community.com/
+          scopes: {}
+          tokenUrl: /oauth/v1/token
