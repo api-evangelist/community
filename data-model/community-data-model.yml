@@ -1,0 +1,50 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/community-async-openapi-original.yml
+notes: >-
+  Entity-relationship graph derived from the Async REST API request schemas and
+  id-reference fields (tag_id, phone_number, custom data fields) plus the
+  documented object reference. Data Export resources corroborate the entities.
+entities:
+- name: Member
+  aka: [subscriber, subscription]
+  identifiers: [phone_number, member id (UUID)]
+  operations: [upsert-member, upsert-member-custom-data, opt-out-member, change-community-membership]
+  fields: [phone_number, first_name, last_name, email, custom data fields, geolocation, state]
+- name: Subcommunity
+  aka: [tag]
+  identifiers: [tag_id (UUID), tag title]
+  operations: [tag-create, tag-delete, tag-update, tag-keyword-modify, change-community-membership]
+  fields: [title, description, color (RGB), keywords]
+- name: Message
+  identifiers: [message id]
+  operations: [send-message]
+  fields: [text, phone_number, communication_channel, override_quiet_hours, media]
+- name: CustomData
+  operations: [upsert-member-custom-data]
+  fields: [field name, value]
+relationships:
+- from: Member
+  to: Subcommunity
+  type: has_many
+  via: tag_id
+  operation: change-community-membership
+- from: Subcommunity
+  to: Member
+  type: has_many
+  via: tag_id
+- from: Message
+  to: Member
+  type: belongs_to
+  via: phone_number
+  operation: send-message
+- from: CustomData
+  to: Member
+  type: belongs_to
+  via: phone_number
+  operation: upsert-member-custom-data
+- from: Subcommunity
+  to: keyword
+  type: has_many
+  via: keyword
+  operation: tag-keyword-modify

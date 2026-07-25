@@ -1,0 +1,18 @@
+{
+  "provider": "community",
+  "sources": [
+    "community-member-data-api-openapi.yml",
+    "community-messaging-api-openapi.yml",
+    "community-tags-api-openapi.yml"
+  ],
+  "outputs": [
+    "community-member-data-api-openapi.yml",
+    "community-messaging-api-openapi.yml",
+    "community-tags-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

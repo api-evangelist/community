@@ -1,0 +1,55 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/community-async-openapi-original.yml
+format: http-status
+notes: >-
+  Derived from the OpenAPI 4xx/5xx responses across the Async REST API. Community
+  does not declare an application/problem+json (RFC 9457) body; errors are
+  signaled by HTTP status only. Titles/descriptions are taken verbatim from the
+  spec response descriptions.
+problems:
+- status: 400
+  title: Bad request
+  meaning: The request body or parameters failed validation.
+  operations:
+  - send-message
+  - upsert-member
+  - upsert-member-custom-data
+  - opt-out-member
+  - change-community-membership
+  - tag-create
+  - tag-delete
+  - tag-update
+  - tag-keyword-modify
+- status: 401
+  title: Unauthorized
+  meaning: Missing or invalid bearer/OAuth credentials.
+  operations:
+  - send-message
+  - upsert-member
+  - upsert-member-custom-data
+  - opt-out-member
+  - change-community-membership
+  - tag-create
+  - tag-delete
+  - tag-update
+  - tag-keyword-modify
+- status: 403
+  title: Forbidden
+  meaning: Credentials are valid but not permitted for this operation or client_id.
+  operations:
+  - send-message
+  - upsert-member
+  - upsert-member-custom-data
+  - opt-out-member
+  - change-community-membership
+  - tag-create
+  - tag-delete
+  - tag-update
+  - tag-keyword-modify
+- status: 415
+  title: Unsupported media type
+  meaning: Request Content-Type is not application/json.
+  operations:
+  - send-message
+  - change-community-membership

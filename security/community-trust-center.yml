@@ -1,0 +1,14 @@
+generated: '2026-07-18'
+method: searched
+probe: true
+source: https://trust.community.com/
+url: https://trust.community.com/
+certifications:
+- SOC 2
+- GDPR
+evidence:
+- source: https://trust.community.com/
+  keywords:
+  - soc 2
+  - trust center
+  - gdpr

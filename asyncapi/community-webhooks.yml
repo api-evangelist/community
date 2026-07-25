@@ -1,0 +1,33 @@
+generated: '2026-07-18'
+method: searched
+source: https://developer.community.com/reference/webhooks-introduction
+spec_type: Webhooks
+notes: >-
+  Community documents outbound webhooks but publishes no AsyncAPI document, so
+  this is a captured webhook catalog (type Webhooks), not a fabricated AsyncAPI
+  spec. Webhooks are configured in the Community Dashboard
+  (Settings -> Integrations -> Webhooks).
+delivery:
+  transport: HTTP POST (JSON) to a subscriber-provided endpoint
+  guarantee: at-least-once (may be redelivered; deduplicate by event id for >= 1 hour)
+  signature:
+    header: community-signature
+    scheme: HMAC with a per-webhook shared signature secret
+envelope:
+  fields: [type, id, created, api_version, object, data]
+events:
+- type: message.inbound
+  description: A message sent from a member to your account.
+  data_object: message
+- type: message.outbound
+  description: A message sent to a member from your account (some content-handled messages are filtered out).
+  data_object: message
+- type: member.created
+  description: A new member joins your account.
+  data_object: member
+- type: member.updated
+  description: A member unsubscribes or changes standard personal data.
+  data_object: member
+- type: member.deleted
+  description: A member deletes themselves.
+  data_object: member

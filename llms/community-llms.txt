@@ -1,0 +1,34 @@
+# Community Documentation
+
+> Documentation for Community
+
+## Guides
+- [Documentation](https://developer.community.com/docs.md): Community documentation
+
+## API Reference
+- [API Overview](https://developer.community.com/reference/getting-started-with-your-api.md)
+- [Testing Best Practices](https://developer.community.com/reference/testing.md)
+- [Introduction](https://developer.community.com/reference/async-api-introduction.md)
+- [Authentication Setup](https://developer.community.com/reference/webhook-api-authentication.md)
+- [Send Direct Message](https://developer.community.com/reference/send-message.md)
+- [Invite / Update Member](https://developer.community.com/reference/upsert-member.md)
+- [Upsert Custom Member Data](https://developer.community.com/reference/upsert-member-custom-data.md)
+- [Member Opt-Out](https://developer.community.com/reference/opt-out-member.md)
+- [Add / Remove Member from Subcommunity](https://developer.community.com/reference/change-community-membership.md): You can either pass in the subcommunity ID (`tag_id`) or the `tag` name. If you provide both, `tag_id` takes precedence.
+- [Create a Subcommunity](https://developer.community.com/reference/tag-create.md)
+- [Delete a Subcommunity](https://developer.community.com/reference/tag-delete.md): You can either pass in the subcommunity ID (`tag_id`) or the `title`. If you provide both, `tag_id` takes precedence.
+- [Update a Subcommunity](https://developer.community.com/reference/tag-update.md): Similar as the tag_create operation, this will update the desired tag (Subcommunity), identified by the provided `tag_id`.  This is a delta-update, i.e., omitted fields will not modify the Subcommunity. I.e.: If you only want to update the tag's `title` but leave color and description the same, only pass the `tag_id` and the `title`, so that the rest will stay the same.
+- [Add / Remove keywords from Subcommunity](https://developer.community.com/reference/tag-keyword-modify.md): You can either pass in the subcommunity ID (`tag_id`) or the `title`. If you provide both, `tag_id` takes precedence.
+- [Introduction](https://developer.community.com/reference/data-export-introduction.md)
+- [Authentication Setup](https://developer.community.com/reference/data-export-api-authentication.md)
+- [Downloading Data](https://developer.community.com/reference/data-export-api-downloading-data.md)
+- [Guide to Member Subscription States](https://developer.community.com/reference/community-member-states.md)
+- [Webhooks Introduction and Setup](https://developer.community.com/reference/webhooks-introduction.md)
+- [Adobe Journey Optimizer](https://developer.community.com/reference/adobe-journey-optimizer.md)
+- [Formstack](https://developer.community.com/reference/formstack.md)
+- [GrowthLoop](https://developer.community.com/reference/growthloop.md)
+- [Salesforce](https://developer.community.com/reference/salesforce.md)
+- [Shopify](https://developer.community.com/reference/shopify.md)
+- [Signup Form Integrations](https://developer.community.com/reference/signup-form-integrations.md)
+- [Tradable Bits](https://developer.community.com/reference/tradable-bits.md)
+- [Zapier](https://developer.community.com/reference/zapier.md)

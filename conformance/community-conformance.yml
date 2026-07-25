@@ -1,0 +1,35 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/community-async-openapi-original.yml
+standards:
+- id: oauth2
+  conforms: true
+  evidence: openapi securitySchemes declares an oauth2 authorizationCode flow (oAuth)
+- id: oauth2-bearer-jwt
+  conforms: true
+  evidence: securitySchemes bearerAuth is http bearer with bearerFormat JWT
+- id: oidc
+  conforms: false
+  evidence: no openIdConnect scheme or openid-configuration discovery document
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: 4xx responses declare no application/problem+json body
+- id: json:api
+  conforms: false
+- id: scim2
+  conforms: false
+- id: fhir-r4
+  conforms: false
+- id: webhook-signing
+  conforms: true
+  evidence: webhook payloads signed with a community-signature HMAC header (shared secret)
+compliance:
+- id: soc2
+  published: true
+  evidence: trust.community.com trust center names SOC 2
+- id: gdpr
+  published: true
+  evidence: trust.community.com trust center names GDPR
+- id: tcpa
+  published: true
+  evidence: TCR registration required; messaging compliance enforced (quiet hours, opt-out)

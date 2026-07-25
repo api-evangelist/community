@@ -1,25 +1,171 @@
 aid: community
 name: Community
-description: Community is a company surfaced as a portfolio company of techstars and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Community is a conversational messaging platform that lets brands, creators,
+  artists, sports teams, media companies, and political organizations reach their
+  audiences directly over SMS, MMS, WhatsApp, Apple Messages for Business, and
+  RCS. Founded in 2019 and remote-first, Community pairs a campaign-and-flows
+  product with a developer surface: an Async REST API to send Direct Messages,
+  create and update members, set custom member data, manage subcommunities
+  (tags), and opt members out; a Data Export API for member, campaign, and link
+  analytics snapshots; and outbound webhooks for inbound/outbound messages and
+  member lifecycle events. API access is provisioned per account by the Community
+  team rather than self-serve.
 url: https://raw.githubusercontent.com/api-evangelist/community/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - techstars
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: enriched
+x-tier-reason: real-developer-api-found
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://community.com/og-image.jpg
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
+- Messaging
+- SMS
+- Communications
+- Conversational
+- Marketing
+- Creators
+- Webhooks
 - Company
-apis: []
+apis:
+- aid: community:community-data-export-api
+  name: Community Data Export API
+  humanURL: https://developer.community.com/reference/data-export-introduction
+  baseURL: https://dl.community.com
+  tags:
+  - Data Export
+  - Analytics
+  - Reporting
+  description: >-
+    Community's Data Export API allows programmatic retrieval of account data in CSV or JSON formats,
+    including member detail, campaign performance, link click performance, subscription state changes,
+    and community membership. Files are generated every 24 hours as account snapshots and served via time-limited
+    redirect download URLs. Authenticated with a bearer session token.
+  properties:
+  - url: https://developer.community.com/reference/data-export-introduction
+    type: Documentation
+- aid: community:community-member-data-api
+  name: Community member-data API
+  description: The member-data API from Community — 4 operation(s) for member-data.
+  humanURL: https://developer.community.com/reference/getting-started-with-your-api
+  baseURL: https://api.community.com/webhooks/v1/community
+  tags:
+  - member-data
+  properties:
+  - type: OpenAPI
+    url: openapi/community-member-data-api-openapi.yml
+  - type: Documentation
+    url: https://developer.community.com/reference/getting-started-with-your-api
+  - type: APIReference
+    url: https://developer.community.com/reference/send-message
+- aid: community:community-messaging-api
+  name: Community messaging API
+  description: The messaging API from Community — 1 operation(s) for messaging.
+  humanURL: https://developer.community.com/reference/getting-started-with-your-api
+  baseURL: https://api.community.com/webhooks/v1/community
+  tags:
+  - messaging
+  properties:
+  - type: OpenAPI
+    url: openapi/community-messaging-api-openapi.yml
+  - type: Documentation
+    url: https://developer.community.com/reference/getting-started-with-your-api
+  - type: APIReference
+    url: https://developer.community.com/reference/send-message
+- aid: community:community-tags-api
+  name: Community tags API
+  description: The tags API from Community — 4 operation(s) for tags.
+  humanURL: https://developer.community.com/reference/getting-started-with-your-api
+  baseURL: https://api.community.com/webhooks/v1/community
+  tags:
+  - tags
+  properties:
+  - type: OpenAPI
+    url: openapi/community-tags-api-openapi.yml
+  - type: Documentation
+    url: https://developer.community.com/reference/getting-started-with-your-api
+  - type: APIReference
+    url: https://developer.community.com/reference/send-message
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DeveloperPortal
+  url: https://developer.community.com/
+- type: Documentation
+  url: https://developer.community.com/docs
+- type: APIReference
+  url: https://developer.community.com/reference/getting-started-with-your-api
+- type: GettingStarted
+  url: https://developer.community.com/reference/getting-started-with-your-api
+- type: LLMsTxt
+  url: llms/community-llms.txt
+- type: MCPServer
+  url: mcp/community-mcp.yml
+- type: Overlay
+  url: overlays/community-async-overlay.yaml
+- type: Conformance
+  url: conformance/community-conformance.yml
+- type: Compliance
+  url: https://trust.community.com/
+- type: ErrorCatalog
+  url: errors/community-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/community-lifecycle.yml
+- type: Conventions
+  url: conventions/community-conventions.yml
+- type: DataModel
+  url: data-model/community-data-model.yml
+- type: Webhooks
+  url: asyncapi/community-webhooks.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: AgenticAccess
+  url: agentic-access/community-agentic-access.yml
+- type: TrustCenter
+  url: security/community-trust-center.yml
+- type: DomainSecurity
+  url: security/community-domain-security.yml
+- type: OAuthScopes
+  url: scopes/community-scopes.yml
+- type: Authentication
+  url: authentication/community-authentication.yml
+- type: Blog
+  url: https://community.com/blog
+- type: Support
+  url: https://community.com/faq
+- type: Pricing
+  url: https://community.com/pricing
+- type: Login
+  url: https://community.com/login
+- type: SignUp
+  url: https://community.com/signup/book-a-demo
+- type: TermsOfService
+  url: https://community.com/legal/terms
+- type: PrivacyPolicy
+  url: https://community.com/legal/privacy-policy
 - type: Website
   url: https://community.com/
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

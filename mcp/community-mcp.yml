@@ -1,0 +1,40 @@
+generated: '2026-07-18'
+method: derived
+status: candidate
+source: openapi/community-async-openapi-original.yml
+notes: >-
+  No official hosted/remote MCP server was found for Community (searched docs,
+  npm @modelcontextprotocol, and MCP registries). This is a candidate tool list
+  derived one-to-one from the Async REST API operations so a server could be
+  generated. Not published by the provider.
+server:
+  name: community
+  transport: http
+tools:
+- name: send_message
+  description: Send a Direct Message to a live Member.
+  source_operation: openapi/community-async-openapi-original.yml#send-message
+- name: upsert_member
+  description: Invite or update a Member (subscription_create).
+  source_operation: openapi/community-async-openapi-original.yml#upsert-member
+- name: upsert_member_custom_data
+  description: Set custom data field values on a Member.
+  source_operation: openapi/community-async-openapi-original.yml#upsert-member-custom-data
+- name: opt_out_member
+  description: Opt a Member out of messaging.
+  source_operation: openapi/community-async-openapi-original.yml#opt-out-member
+- name: change_community_membership
+  description: Add or remove a Member from a Subcommunity.
+  source_operation: openapi/community-async-openapi-original.yml#change-community-membership
+- name: tag_create
+  description: Create a Subcommunity (tag).
+  source_operation: openapi/community-async-openapi-original.yml#tag-create
+- name: tag_delete
+  description: Delete a Subcommunity (tag).
+  source_operation: openapi/community-async-openapi-original.yml#tag-delete
+- name: tag_update
+  description: Update a Subcommunity (tag).
+  source_operation: openapi/community-async-openapi-original.yml#tag-update
+- name: tag_keyword_modify
+  description: Add or remove keywords from a Subcommunity.
+  source_operation: openapi/community-async-openapi-original.yml#tag-keyword-modify

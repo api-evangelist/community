@@ -1,0 +1,11 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/community-async-openapi-original.yml
+schemes:
+- name: oAuth
+  source: openapi/community-async-openapi-original.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://oauth-login.community.com/
+    tokenUrl: /oauth/v1/token
+scopes: []

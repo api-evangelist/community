@@ -1,0 +1,24 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Community Async REST API
+  version: 1.0.0
+extends: openapi/community-async-openapi-original.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provenance: >-
+      Spec reconstructed verbatim from the per-operation OpenAPI blocks embedded
+      in developer.community.com reference pages (ReadMe-hosted portal), merged
+      by the API Evangelist enrichment pipeline. No content was invented.
+    x-apievangelist-source: https://developer.community.com/reference/
+- target: $.info
+  update:
+    x-agent-notes: >-
+      All write operations are asynchronous and return 202 Accepted. Quiet Hours
+      (11am-8pm ET by default) queue messages unless override_quiet_hours=true.
+      Identical text to the same phone_number is deduplicated (30 min SMS,
+      10 min WhatsApp). API access must be provisioned by Community (contact
+      saleseng@community.com).
+- target: $.servers[0]
+  update:
+    x-production-host: https://api.community.com/webhooks/v1/community/{client_id}

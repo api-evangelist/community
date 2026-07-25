@@ -1,0 +1,28 @@
+generated: '2026-07-18'
+method: searched
+source: https://developer.community.com/reference/getting-started-with-your-api
+versioning:
+  scheme: uri-path
+  current: v1
+  spec_version: 0.1.0
+  docs: https://developer.community.com/reference/getting-started-with-your-api
+  notes: >-
+    Version is carried in the server path (/webhooks/v1/...). Webhook payloads
+    also carry an api_version field.
+provisioning:
+  model: gated
+  notes: >-
+    API access must be provisioned by the Community team via a technical
+    onboarding packet (contact saleseng@community.com). Not self-serve.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: No published deprecation policy or RFC 8594 Sunset/Deprecation header support was found.
+sla:
+  url: null
+status_page: null
+notes: >-
+  No public status page (status.community.com does not resolve) and no published
+  deprecation policy were found, so no StatusPage or Deprecation scoring pointer
+  is wired.
+deprecated_operations: []

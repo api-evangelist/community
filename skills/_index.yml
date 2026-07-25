@@ -1,0 +1,12 @@
+generated: '2026-07-18'
+method: generated
+source: openapi/community-async-openapi-original.yml
+skills:
+- file: community-send-direct-message.md
+  name: Send a direct message to a Community member
+  api: openapi/community-async-openapi-original.yml
+  operations: [send-message]
+- file: community-onboard-and-segment-member.md
+  name: Onboard and segment a Community member
+  api: openapi/community-async-openapi-original.yml
+  operations: [upsert-member, upsert-member-custom-data, tag-create, change-community-membership, opt-out-member]

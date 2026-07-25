@@ -1,0 +1,47 @@
+generated: '2026-07-18'
+method: searched
+source: https://developer.community.com/reference/
+authentication:
+  styles:
+  - http bearer (JWT)
+  - oauth2 authorizationCode
+  detail: authentication/community-authentication.yml
+  provisioning: API access provisioned by Community; contact saleseng@community.com
+request_response:
+  content_type: application/json
+  async_model: >-
+    Write operations are asynchronous and return 202 Accepted; the work is
+    queued and processed after the response. Clients should not expect the
+    created/modified resource in the response body.
+idempotency:
+  supported: false
+  notes: >-
+    The Async REST API documents no request idempotency key. It DOES apply
+    server-side text deduplication on message_send (identical text to the same
+    phone_number is dropped within 30 min for SMS / 10 min for WhatsApp), but
+    this is content dedup, not a client-supplied idempotency contract, so no
+    Idempotency scoring pointer is wired.
+pagination:
+  supported: false
+  notes: Async write API has no list/pagination surface. Data Export API delivers full snapshot files.
+messaging_semantics:
+  quiet_hours: >-
+    Messages outside 11am-8pm ET (US) are queued until Quiet Hours end; set
+    override_quiet_hours=true to bypass.
+  deduplication: identical text to the same phone_number is deduplicated (30 min SMS, 10 min WhatsApp)
+  link_wrapping: all links in message text are rewritten with Community's link wrapper
+  phone_format: 10-digit US/CA numbers, or 11 digits with leading 1
+  communication_channel: pass communication_channel to route via WhatsApp (best-effort, 24h member-initiated window)
+webhooks:
+  signing_header: community-signature (HMAC with per-webhook shared secret)
+  delivery: at-least-once; consumers must deduplicate by object/webhook id for >= 1 hour
+  catalog: asyncapi/community-webhooks.yml
+error_envelope:
+  style: http-status-only
+  detail: errors/community-problem-types.yml
+rate_limit_signaling:
+  documented: false
+cross_links:
+  errors: errors/community-problem-types.yml
+  lifecycle: lifecycle/community-lifecycle.yml
+  authentication: authentication/community-authentication.yml
