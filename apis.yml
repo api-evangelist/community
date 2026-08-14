@@ -33,7 +33,7 @@ accessModel:
 image: https://community.com/og-image.jpg
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-18'
+modified: '2026-08-13'
 tags:
 - Messaging
 - SMS
@@ -148,6 +148,12 @@ common:
   url: scopes/community-scopes.yml
 - type: Authentication
   url: authentication/community-authentication.yml
+- type: Packages
+  url: packages/community-packages.yml
+- type: Plans
+  url: plans/community-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/community-rate-limits.yml
 - type: Blog
   url: https://community.com/blog
 - type: Support
@@ -165,7 +171,7 @@ common:
 - type: Website
   url: https://community.com/
 x-enrichment:
-  date: '2026-07-19'
-  status: backfilled
+  date: '2026-08-13'
+  status: enriched
+  artifacts_added: 4
   pass: local-v1
-  note: backfilled from .gitignore signal + verified work evidence
