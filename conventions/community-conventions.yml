@@ -1,4 +1,4 @@
-generated: '2026-07-18'
+generated: '2026-08-13'
 method: searched
 source: https://developer.community.com/reference/
 authentication:
@@ -41,7 +41,32 @@ error_envelope:
   detail: errors/community-problem-types.yml
 rate_limit_signaling:
   documented: false
+  verified: '2026-08-13'
+  notes: >-
+    Re-checked by fetching every page in developer.community.com/llms.txt as
+    markdown and searching for rate limit / throttle / 429 / per second / per
+    minute / quota — zero matches. No X-RateLimit-*, RateLimit-* or Retry-After
+    header is documented and no 429 response is declared in the OpenAPI.
+  detail: rate-limits/community-rate-limits.yml
+data_export_conventions:
+  transport: >-
+    GET a resource path under https://dl.community.com/download/v1/files/{client_id}/;
+    the API answers with a time-limited redirect URL to the file.
+  redirect_ttl: 15 minutes — the redirect URL changes constantly and must not be cached
+  formats: gzipped CSV by default; replace `csv` with `json` in the download URL for JSON
+  freshness: full account snapshot regenerated every 24 hours, new files at 04:00 UTC
+  auth: Bearer API token (community_api prefix) or a Seat Context session JWT
+  source: https://developer.community.com/reference/data-export-api-downloading-data
+testing:
+  sandbox: false
+  detail: sandbox/community-sandbox.yml
+  notes: >-
+    Community documents that no sandbox exists and directs customers to test in
+    their production account with their own U.S./Canadian mobile numbers.
 cross_links:
   errors: errors/community-problem-types.yml
   lifecycle: lifecycle/community-lifecycle.yml
   authentication: authentication/community-authentication.yml
+  rate_limits: rate-limits/community-rate-limits.yml
+  sandbox: sandbox/community-sandbox.yml
+  plans: plans/community-plans-pricing.yml

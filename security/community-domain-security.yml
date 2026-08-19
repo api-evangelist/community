@@ -1,4 +1,4 @@
-generated: '2026-07-18'
+generated: '2026-08-13'
 method: probed
 source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
 hosts:
@@ -8,16 +8,27 @@ hosts:
   cert_expires: Sep 26 16:17:35 2026 GMT
   hsts: true
   hsts_max_age: 31536000
+- host: developer.community.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 14 12:04:45 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: dl.community.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 29 15:15:35 2026 GMT
+  hsts: null
 domains:
 - domain: community.com
   dnssec: false
   caa:
+  - 0 issuewild "awstrust.com"
+  - 0 issuewild "comodoca.com"
+  - 0 issuewild "digicert.com"
+  - 0 issuewild "letsencrypt.org"
   - 0 issuewild "pki.goog; cansignhttpexchanges=yes"
   - 0 iodef "mailto:security@community.com"
-  - 0 issue "amazon.com"
-  - 0 issue "amazonaws.com"
-  - 0 issue "amazontrust.com"
-  - 0 issue "awstrust.com"
   spf: true
   dmarc: true
   dmarc_policy: quarantine

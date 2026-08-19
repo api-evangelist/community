@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Async REST member-data tags API",
+    "version": "0.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "tags",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a Subcommunity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{environment}.community.com/webhooks/{version}/community/{client_id}/tag_create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a Subcommunity"
+        },
+        {
+          "info": {
+            "name": "Delete a Subcommunity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{environment}.community.com/webhooks/{version}/community/{client_id}/tag_delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "You can either pass in the subcommunity ID (`tag_id`) or the `title`. If you provide both, `tag_id` takes precedence."
+        },
+        {
+          "info": {
+            "name": "Update a Subcommunity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{environment}.community.com/webhooks/{version}/community/{client_id}/tag_update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Similar as the tag_create operation, this will update the desired tag (Subcommunity), identified by the provided `tag_id`.\n\nThis is a delta-update, i.e., omitted fields will not modify the Subcommunity. I.e.: If you only want to update the tag's `title` but leave color and description the same, only pass the `tag_id` and the `title`, so that the rest will stay the same."
+        },
+        {
+          "info": {
+            "name": "Add / Remove keywords from Subcommunity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{environment}.community.com/webhooks/{version}/community/{client_id}/tag_keyword_modify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "You can either pass in the subcommunity ID (`tag_id`) or the `title`. If you provide both, `tag_id` takes precedence."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

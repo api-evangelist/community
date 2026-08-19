@@ -1,19 +1,86 @@
-generated: '2026-07-18'
-method: searched
-source: probed community.com and developer.community.com
-host: https://community.com
+generated: '2026-08-13'
+method: probed
+source: >-
+  direct HTTPS probe of every apis.yml baseURL host, every OpenAPI servers[]
+  host, and the docs host — 2026-08-13
+hosts_probed:
+- https://community.com
+- https://developer.community.com
+- https://api.community.com
+- https://dl.community.com
 documents:
-- path: /.well-known/security.txt
+- host: api.community.com
+  path: /.well-known/security.txt
   status: 404
-- path: /.well-known/openid-configuration
+- host: api.community.com
+  path: /.well-known/openid-configuration
   status: 404
-- path: /.well-known/oauth-authorization-server
+- host: api.community.com
+  path: /.well-known/oauth-authorization-server
   status: 404
-- path: /.well-known/api-catalog
+- host: api.community.com
+  path: /.well-known/oauth-protected-resource
   status: 404
-- path: /.well-known/ai-plugin.json
+- host: api.community.com
+  path: /.well-known/api-catalog
   status: 404
+- host: api.community.com
+  path: /.well-known/ai-plugin.json
+  status: 404
+- host: dl.community.com
+  path: /.well-known/security.txt
+  status: 404
+- host: dl.community.com
+  path: /.well-known/openid-configuration
+  status: 404
+- host: dl.community.com
+  path: /.well-known/oauth-authorization-server
+  status: 404
+- host: dl.community.com
+  path: /.well-known/oauth-protected-resource
+  status: 404
+- host: dl.community.com
+  path: /.well-known/api-catalog
+  status: 404
+- host: dl.community.com
+  path: /.well-known/ai-plugin.json
+  status: 404
+- host: community.com
+  path: /.well-known/security.txt
+  status: 404
+- host: community.com
+  path: /.well-known/openid-configuration
+  status: 404
+- host: community.com
+  path: /.well-known/oauth-authorization-server
+  status: 404
+- host: community.com
+  path: /.well-known/api-catalog
+  status: 404
+- host: community.com
+  path: /.well-known/ai-plugin.json
+  status: 404
+- host: developer.community.com
+  path: /.well-known/security.txt
+  status: 404
+- host: developer.community.com
+  path: /.well-known/openid-configuration
+  status: 404
+- host: developer.community.com
+  path: /.well-known/oauth-authorization-server
+  status: 404
+- host: developer.community.com
+  path: /.well-known/api-catalog
+  status: 404
+- host: developer.community.com
+  path: /.well-known/ai-plugin.json
+  status: 404
+hit_count: 0
 notes: >-
-  No /.well-known/ discovery documents are published on community.com or
-  developer.community.com. Recorded as an honest negative result; no WellKnown
-  or SecurityTxt scoring pointer is wired because no document was found.
+  No /.well-known/ discovery document is served on ANY Community host. The two
+  API hosts (api.community.com, dl.community.com) sit behind a Kong gateway that
+  answers every unmatched path with a 404 JSON body
+  ({"message":"no Route matched with those values"}); community.com and
+  developer.community.com answer 404 with an HTML SPA/docs shell. Recorded as an
+  honest negative result across all four hosts — no WellKnown and no SecurityTxt
+  scoring pointer is wired, because no document was returned.

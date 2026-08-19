@@ -8,4 +8,19 @@ schemes:
   - flow: authorizationCode
     authorizationUrl: https://oauth-login.community.com/
     tokenUrl: /oauth/v1/token
+    tokenUrl_absolute: https://api.community.com/oauth/v1/token
 scopes: []
+scope_count: 0
+docs: null
+docs_search:
+  checked: '2026-08-13'
+  method: >-
+    Fetched every page listed in https://developer.community.com/llms.txt as
+    markdown and looked for a scopes / permissions reference.
+  result: >-
+    Community publishes NO OAuth scope or permission reference. The OpenAPI
+    oauth2 flow declares an empty scopes map, and the provider's own Python
+    Sample Code requests scope=[] when creating the OAuth session
+    (https://developer.community.com/reference/sample-code). Access is granted
+    per account seat by the Community team rather than by scope, so there is
+    nothing to enrich — the empty list is the finding, not a gap in the probe.

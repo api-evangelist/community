@@ -2,11 +2,9 @@ generated: '2026-07-18'
 method: derived
 status: candidate
 source: openapi/community-async-openapi-original.yml
-notes: >-
-  No official hosted/remote MCP server was found for Community (searched docs,
-  npm @modelcontextprotocol, and MCP registries). This is a candidate tool list
-  derived one-to-one from the Async REST API operations so a server could be
-  generated. Not published by the provider.
+notes: No official hosted/remote MCP server was found for Community (searched docs, npm @modelcontextprotocol,
+  and MCP registries). This is a candidate tool list derived one-to-one from the Async REST API operations
+  so a server could be generated. Not published by the provider.
 server:
   name: community
   transport: http
@@ -38,3 +36,18 @@ tools:
 - name: tag_keyword_modify
   description: Add or remove keywords from a Subcommunity.
   source_operation: openapi/community-async-openapi-original.yml#tag-keyword-modify
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: unknown
+  verified: derived
+  tools: 9
+  checked: '2026-08-13'
+  source: >-
+    catalog MCP census (2026-08-12), re-checked 2026-08-13 against
+    registry.modelcontextprotocol.io/v0/servers?search=community (no Community
+    entry), npm, and developer.community.com/llms.txt. Community ships neither a
+    remote MCP endpoint nor a local stdio package; mode is none because this
+    tool list is our derived candidate, not a provider surface.

@@ -1,0 +1,43 @@
+generated: '2026-08-13'
+method: searched
+source: https://developer.community.com/llms.txt
+limit_count: 0
+limits: []
+response_headers: []
+exhaustion_status: null
+searched_pages:
+- https://developer.community.com/reference/getting-started-with-your-api
+- https://developer.community.com/reference/async-api-introduction
+- https://developer.community.com/reference/testing
+- https://developer.community.com/reference/webhook-api-authentication
+- https://developer.community.com/reference/data-export-api-authentication
+- https://developer.community.com/reference/data-export-api-downloading-data
+- https://developer.community.com/reference/webhooks-introduction
+- https://developer.community.com/reference/sample-code
+notes: >-
+  Community publishes NO rate limits. Every page in the developer.community.com
+  llms.txt index was fetched as markdown and searched for "rate limit",
+  "throttle", "429", "per second", "per minute" and "quota" — zero matches. The
+  Async REST API OpenAPI declares no 429 response on any of its nine
+  operations, and documents no X-RateLimit-*/RateLimit-*/Retry-After response
+  headers. An honest zero: an agent integrating with Community has no published
+  runtime signal to back off on.
+adjacent_throttling:
+  - control: quiet hours
+    detail: >-
+      Not a rate limit, but the documented mechanism that defers delivery.
+      Messages sent outside 11am-8pm ET (US) are queued until Quiet Hours end
+      unless override_quiet_hours=true is passed on message_send.
+    source: https://developer.community.com/reference/send-message
+  - control: content deduplication
+    detail: >-
+      Identical message text to the same phone_number is dropped within 30
+      minutes (SMS) / 10 minutes (WhatsApp). Server-side dedup, not a client
+      rate limit.
+    source: conventions/community-conventions.yml
+  - control: data export snapshot cadence
+    detail: >-
+      Data Export files regenerate once every 24 hours (new files at 04:00
+      UTC), and each download redirect URL is valid for only 15 minutes. This
+      caps useful polling frequency but is not published as a request limit.
+    source: https://developer.community.com/reference/data-export-api-downloading-data

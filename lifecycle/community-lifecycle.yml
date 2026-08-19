@@ -1,4 +1,4 @@
-generated: '2026-07-18'
+generated: '2026-08-13'
 method: searched
 source: https://developer.community.com/reference/getting-started-with-your-api
 versioning:
@@ -21,8 +21,29 @@ deprecation:
 sla:
   url: null
 status_page: null
+status_page_probe:
+  checked: '2026-08-13'
+  evidence:
+  - url: https://status.community.com
+    status: 000
+    detail: does not resolve (no DNS record)
+  - url: https://community.statuspage.io
+    status: 200
+    detail: >-
+      An Atlassian Statuspage titled "Community Status" exists but is INACTIVE —
+      the page body reads "This page is currently inactive and can only be
+      viewed by team members" and offers a request-access form. A 200 here is
+      not a public status page, so no StatusPage pointer is wired.
+change_log:
+  url: null
+  notes: >-
+    Community publishes no dated API changelog. The docs are ReadMe-hosted and
+    each page carries only an updatedAt timestamp (most API reference pages last
+    updated 2025-09-08/14; the Data Export download page 2026-08-12). No
+    changelog/ artifact is written and no ChangeLog pointer is wired.
 notes: >-
-  No public status page (status.community.com does not resolve) and no published
-  deprecation policy were found, so no StatusPage or Deprecation scoring pointer
-  is wired.
+  No usable public status page (status.community.com does not resolve;
+  community.statuspage.io returns 200 but is an inactive, team-only page), no
+  published deprecation policy, no SLA and no changelog were found — so no
+  StatusPage, Deprecation or ChangeLog scoring pointer is wired.
 deprecated_operations: []

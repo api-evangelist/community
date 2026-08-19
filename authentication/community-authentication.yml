@@ -1,25 +1,108 @@
-generated: '2026-07-18'
-method: derived
-source: openapi/community-async-openapi-original.yml
+generated: '2026-08-13'
+method: searched
+source: openapi/_original/community-async-openapi-original.yml
+docs:
+- https://developer.community.com/reference/webhook-api-authentication
+- https://developer.community.com/reference/data-export-api-authentication
+- https://developer.community.com/reference/sample-code
 summary:
   types:
   - http
   - oauth2
+  - apiKey
+  api_key_in:
+  - header
   oauth2_flows:
   - authorizationCode
+  provisioning: >-
+    Not self-serve. An account seat must have Async REST API and/or Data Export
+    access enabled by the Community team before any credential can be issued
+    (technical onboarding packet; saleseng@community.com).
 schemes:
 - name: bearerAuth
   type: http
   scheme: bearer
   bearerFormat: JWT
   sources:
-  - openapi/community-async-openapi-original.yml
+  - openapi/_original/community-async-openapi-original.yml
 - name: oAuth
   type: oauth2
   flows:
   - flow: authorizationCode
     authorizationUrl: https://oauth-login.community.com/
-    tokenUrl: /oauth/v1/token
+    tokenUrl: https://api.community.com/oauth/v1/token
     scopes: 0
   sources:
-  - openapi/community-async-openapi-original.yml
+  - openapi/_original/community-async-openapi-original.yml
+  - https://developer.community.com/reference/sample-code
+  notes: >-
+    The OpenAPI declares tokenUrl as the relative path /oauth/v1/token; the
+    Sample Code page publishes the absolute form
+    https://api.community.com/oauth/v1/token. The docs value is recorded here.
+    The scopes map is empty in the spec and the sample requests scope=[], so
+    Community's OAuth has no published scope surface.
+- name: apiToken
+  type: apiKey
+  in: header
+  parameter: Authorization
+  format: 'Bearer <API Token>'
+  token_prefix: community_api
+  management: Community Dashboard -> Settings > API Tokens (a.k.a. Settings > Auth Tokens)
+  applies_to:
+  - Async REST API
+  - Data Export API
+  sources:
+  - https://developer.community.com/reference/webhook-api-authentication
+  - https://developer.community.com/reference/data-export-api-authentication
+  notes: >-
+    Not present in the OpenAPI — captured from the docs. This is the primary,
+    documented credential for both APIs; the token is prefixed community_api and
+    is presented as a bearer token in the Authorization header.
+token_lifetimes:
+- credential: OAuth 2.0 access token (JWT)
+  lifetime: 60 minutes
+  refresh: OAuth refresh_token issued alongside the access token
+  source: https://developer.community.com/reference/sample-code
+- credential: Seat Context session token (JWT)
+  lifetime: 7 days
+  revocation: DELETE https://dl.community.com/download/v2/auth/logout
+  source: https://developer.community.com/reference/data-export-api-authentication
+- credential: Data Export download redirect URL
+  lifetime: 15 minutes
+  source: https://developer.community.com/reference/data-export-api-downloading-data
+  notes: Time-limited redirect; must not be cached.
+seat_context_api:
+  purpose: >-
+    Alternative Data Export authentication for enterprises managing several
+    Community accounts from one seat (email). Login returns a JWT scoped to a
+    client_id; the caller then lists and switches account contexts.
+  base: https://dl.community.com/download/v2
+  operations:
+  - method: POST
+    path: /auth/login
+    description: Establish a session from an account seat email + password; returns seat_id, client_id, device_id and a JWT.
+  - method: POST
+    path: /auth/login/callback/mfa
+    description: Complete two-factor authentication with a six-digit TOTP code when 2FA is enabled on any account the seat can reach.
+  - method: GET
+    path: /auth/context
+    description: List the Community accounts (contexts) the seat can access, each identified by client_id.
+  - method: PUT
+    path: /auth/context
+    description: Switch to a given client_id context and receive a new JWT scoped to it.
+  - method: DELETE
+    path: /auth/logout
+    description: Expire the session token before its 7-day lifetime elapses.
+  mfa: TOTP six-digit code, required when 2FA is enabled on the account
+  source: https://developer.community.com/reference/data-export-api-authentication
+webhook_authentication:
+  direction: inbound (Community -> subscriber endpoint)
+  header: community-signature
+  scheme: HMAC computed with a per-webhook shared signature secret
+  source: https://developer.community.com/reference/webhooks-introduction
+notes: >-
+  Upgraded from derived to searched on 2026-08-13. The OpenAPI only declares
+  bearerAuth and oAuth; the developer docs add the primary credential actually
+  issued to customers (a community_api-prefixed API token), the concrete token
+  lifetimes, and the Seat Context API used for multi-account Data Export access.
+  No scopes are published for the oauth2 flow — see scopes/community-scopes.yml.

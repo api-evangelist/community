@@ -1,0 +1,37 @@
+generated: '2026-08-13'
+method: searched
+source: https://developer.community.com/reference/sample-code
+searched:
+- registry: npm
+  query: 'community.com / @communitycom / community-sdk (registry.npmjs.org search)'
+  result: no first-party package
+- registry: pypi
+  query: community-sdk, communitycom (pypi.org/pypi/<pkg>/json)
+  result: 404 — no first-party package
+- registry: github
+  query: api.github.com/orgs/{community,communitydotcom,community-com}
+  result: 404 — Community publishes no public GitHub organization
+package_count: 0
+packages: []
+notes: >-
+  Community publishes NO first-party client libraries. Searched npm, PyPI and
+  GitHub organizations; nothing first-party exists. The only code Community
+  publishes is an unpackaged Python reference implementation pasted inline on
+  the Sample Code docs page
+  (https://developer.community.com/reference/sample-code) — it uses the generic
+  requests_oauthlib library against https://api.community.com and is not
+  distributed through any registry, so there is no version or publish date to
+  read. No SDKs scoring pointer is wired, because no SDK exists.
+reference_implementation:
+  language: python
+  url: https://developer.community.com/reference/sample-code
+  distribution: docs page only (not packaged, no registry entry)
+  version: null
+  published: null
+  official: true
+  covers:
+  - OAuth 2.0 authorization-code connection / authentication
+  - Member invite / onboarding (upsert-member)
+  - Add member to Subcommunity (change-community-membership)
+  - Upsert custom member data (upsert-member-custom-data)
+  - Send Direct Message to member (send-message)

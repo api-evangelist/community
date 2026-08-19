@@ -1,0 +1,50 @@
+generated: '2026-08-13'
+method: searched
+source: https://community.com/pricing
+currency: null
+billing_period: null
+model: contact-sales
+plan_count: 3
+plans:
+- name: Small Business
+  price: null
+  currency: null
+  billing_period: null
+  audience: smaller teams getting started
+  included_quota: null
+  overage: null
+  limits: null
+  signup: https://community.com/signup/book-a-demo
+- name: Mid Market
+  price: null
+  currency: null
+  billing_period: null
+  audience: teams with large audiences
+  badge: Most popular
+  included_quota: null
+  overage: null
+  limits: null
+  signup: https://community.com/signup/book-a-demo
+- name: Enterprise
+  price: null
+  currency: null
+  billing_period: null
+  audience: large organizations
+  packaging: fully customizable package
+  included_quota: null
+  overage: null
+  limits: null
+  signup: https://community.com/signup/book-a-demo
+notes: >-
+  Community names three tiers on its public pricing page but publishes no price,
+  currency, billing period, message/member quota, or overage for any of them.
+  The page states that "plan-based pricing scales with your needs" and routes
+  every tier to "Get your tailored quote" / book-a-demo, so this is a
+  contact-sales pricing model with named tiers rather than published plans.
+  Every price field is recorded as null on purpose — Community does not publish
+  the number, and no figure is inferred from third-party review sites.
+api_provisioning: >-
+  API access is not attached to a published plan. Both the Async REST API and
+  the Data Export API must be enabled per account seat by the Community team
+  (https://developer.community.com/reference/getting-started-with-your-api),
+  via a technical onboarding packet — contact saleseng@community.com.

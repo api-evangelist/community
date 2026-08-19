@@ -1,0 +1,1433 @@
+{
+  "item": [
+    {
+      "id": "18f9b82d-84ed-4d06-8a33-2f05640b1002",
+      "name": "member-data",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a731922e-2bfc-40b2-a5f8-17dc4b3e7663",
+          "name": "Invite / Update Member",
+          "request": {
+            "name": "Invite / Update Member",
+            "description": {},
+            "url": {
+              "path": [
+                "subscription_create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": " (This can only be one of api)",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                },
+                {
+                  "description": " (This can only be one of v1)",
+                  "type": "any",
+                  "value": "{{version}}",
+                  "key": "version"
+                },
+                {
+                  "description": "Community Account's client_id",
+                  "type": "any",
+                  "value": "{{client_id}}",
+                  "key": "client_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"phone_number\": \"<string>\",\n  \"communication_channel\": \"sms\",\n  \"given_name\": \"<string>\",\n  \"surname\": \"<string>\",\n  \"email\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state_or_province\": \"<string>\",\n  \"state_or_province_abbreviation\": \"<string>\",\n  \"country\": \"<string>\",\n  \"country_code\": \"<string>\",\n  \"postal_code\": \"<string>\",\n  \"geolocation\": {\n    \"latitude\": \"<number>\",\n    \"longitude\": \"<number>\"\n  },\n  \"date_of_birth\": \"<string>\",\n  \"gender_identity\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"activation_mode\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "47b611f6-0207-4518-a37f-6e250c2d2226",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscription_create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of api)",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    },
+                    {
+                      "description": " (This can only be one of v1)",
+                      "type": "any",
+                      "value": "{{version}}",
+                      "key": "version"
+                    },
+                    {
+                      "description": "Community Account's client_id",
+                      "type": "any",
+                      "value": "{{client_id}}",
+                      "key": "client_id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"phone_number\": \"<string>\",\n  \"communication_channel\": \"sms\",\n  \"given_name\": \"<string>\",\n  \"surname\": \"<string>\",\n  \"email\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state_or_province\": \"<string>\",\n  \"state_or_province_abbreviation\": \"<string>\",\n  \"country\": \"<string>\",\n  \"country_code\": \"<string>\",\n  \"postal_code\": \"<string>\",\n  \"geolocation\": {\n    \"latitude\": \"<number>\",\n    \"longitude\": \"<number>\"\n  },\n  \"date_of_birth\": \"<string>\",\n  \"gender_identity\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"activation_mode\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b5f28db9-4aaf-4fd6-bff9-fb473f75af5e",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscription_create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of api)",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    },
+                    {
+                      "description": " (This can only be one of v1)",
+                      "type": "any",
+                      "value": "{{version}}",
+                      "key": "version"
+                    },
+                    {
+                      "description": "Community Account's client_id",
+                      "type": "any",
+                      "value": "{{client_id}}",
+                      "key": "client_id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"phone_number\": \"<string>\",\n  \"communication_channel\": \"sms\",\n  \"given_name\": \"<string>\",\n  \"surname\": \"<string>\",\n  \"email\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state_or_province\": \"<string>\",\n  \"state_or_province_abbreviation\": \"<string>\",\n  \"country\": \"<string>\",\n  \"country_code\": \"<string>\",\n  \"postal_code\": \"<string>\",\n  \"geolocation\": {\n    \"latitude\": \"<number>\",\n    \"longitude\": \"<number>\"\n  },\n  \"date_of_birth\": \"<string>\",\n  \"gender_identity\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"activation_mode\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "84ca1fed-d33d-4af6-90de-3ab5ec3ccf31",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscription_create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of api)",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    },
+                    {
+                      "description": " (This can only be one of v1)",
+                      "type": "any",
+                      "value": "{{version}}",
+                      "key": "version"
+                    },
+                    {
+                      "description": "Community Account's client_id",
+                      "type": "any",
+                      "value": "{{client_id}}",
+                      "key": "client_id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"phone_number\": \"<string>\",\n  \"communication_channel\": \"sms\",\n  \"given_name\": \"<string>\",\n  \"surname\": \"<string>\",\n  \"email\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state_or_province\": \"<string>\",\n  \"state_or_province_abbreviation\": \"<string>\",\n  \"country\": \"<string>\",\n  \"country_code\": \"<string>\",\n  \"postal_code\": \"<string>\",\n  \"geolocation\": {\n    \"latitude\": \"<number>\",\n    \"longitude\": \"<number>\"\n  },\n  \"date_of_birth\": \"<string>\",\n  \"gender_identity\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"activation_mode\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bd01773c-db46-4c50-bfce-ffd8681d986b",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscription_create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of api)",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    },
+                    {
+                      "description": " (This can only be one of v1)",
+                      "type": "any",
+                      "value": "{{version}}",
+                      "key": "version"
+                    },
+                    {
+                      "description": "Community Account's client_id",
+                      "type": "any",
+                      "value": "{{client_id}}",
+                      "key": "client_id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"phone_number\": \"<string>\",\n  \"communication_channel\": \"sms\",\n  \"given_name\": \"<string>\",\n  \"surname\": \"<string>\",\n  \"email\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state_or_province\": \"<string>\",\n  \"state_or_province_abbreviation\": \"<string>\",\n  \"country\": \"<string>\",\n  \"country_code\": \"<string>\",\n  \"postal_code\": \"<string>\",\n  \"geolocation\": {\n    \"latitude\": \"<number>\",\n    \"longitude\": \"<number>\"\n  },\n  \"date_of_birth\": \"<string>\",\n  \"gender_identity\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"activation_mode\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a645a649-cefa-465a-9a80-359c3908343f",
+          "name": "Upsert Custom Member Data",
+          "request": {
+            "name": "Upsert Custom Member Data",
+            "description": {},
+            "url": {
+              "path": [
+                "subscription_field_value_modify"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": " (This can only be one of api)",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                },
+                {
+                  "description": " (This can only be one of v1)",
+                  "type": "any",
+                  "value": "{{version}}",
+                  "key": "version"
+                },
+                {
+                  "description": "Community Account's client_id",
+                  "type": "any",
+                  "value": "{{client_id}}",
+                  "key": "client_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"phone_number\": \"<string>\",\n  \"custom_fields\": \"<object>\",\n  \"communication_channel\": \"sms\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "048cb3c7-61b3-45d6-b98c-e1d292ac4a88",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscription_field_value_modify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of api)",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    },
+                    {
+                      "description": " (This can only be one of v1)",
+                      "type": "any",
+                      "value": "{{version}}",
+                      "key": "version"
+                    },
+                    {
+                      "description": "Community Account's client_id",
+                      "type": "any",
+                      "value": "{{client_id}}",
+                      "key": "client_id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"phone_number\": \"<string>\",\n  \"custom_fields\": \"<object>\",\n  \"communication_channel\": \"sms\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bd0012f1-8a3e-4fe8-93d4-a19d0584ce87",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscription_field_value_modify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of api)",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    },
+                    {
+                      "description": " (This can only be one of v1)",
+                      "type": "any",
+                      "value": "{{version}}",
+                      "key": "version"
+                    },
+                    {
+                      "description": "Community Account's client_id",
+                      "type": "any",
+                      "value": "{{client_id}}",
+                      "key": "client_id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"phone_number\": \"<string>\",\n  \"custom_fields\": \"<object>\",\n  \"communication_channel\": \"sms\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "14708433-88b1-497d-90eb-04a8b94e19c2",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscription_field_value_modify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of api)",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    },
+                    {
+                      "description": " (This can only be one of v1)",
+                      "type": "any",
+                      "value": "{{version}}",
+                      "key": "version"
+                    },
+                    {
+                      "description": "Community Account's client_id",
+                      "type": "any",
+                      "value": "{{client_id}}",
+                      "key": "client_id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"phone_number\": \"<string>\",\n  \"custom_fields\": \"<object>\",\n  \"communication_channel\": \"sms\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "50341c70-f302-4c37-b58a-9bffcf731418",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscription_field_value_modify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of api)",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    },
+                    {
+                      "description": " (This can only be one of v1)",
+                      "type": "any",
+                      "value": "{{version}}",
+                      "key": "version"
+                    },
+                    {
+                      "description": "Community Account's client_id",
+                      "type": "any",
+                      "value": "{{client_id}}",
+                      "key": "client_id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"phone_number\": \"<string>\",\n  \"custom_fields\": \"<object>\",\n  \"communication_channel\": \"sms\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0de8447e-3edc-41cb-82d9-92611bfdb9e0",
+          "name": "Member Opt-Out",
+          "request": {
+            "name": "Member Opt-Out",
+            "description": {},
+            "url": {
+              "path": [
+                "subscription_opt_out"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": " (This can only be one of api)",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                },
+                {
+                  "description": " (This can only be one of v1)",
+                  "type": "any",
+                  "value": "{{version}}",
+                  "key": "version"
+                },
+                {
+                  "description": "Community Account's client_id",
+                  "type": "any",
+                  "value": "{{client_id}}",
+                  "key": "client_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"phone_number\": \"<string>\",\n  \"communication_channel\": \"sms\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "78edee21-5e46-466a-927b-4799e02648e8",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscription_opt_out"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of api)",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    },
+                    {
+                      "description": " (This can only be one of v1)",
+                      "type": "any",
+                      "value": "{{version}}",
+                      "key": "version"
+                    },
+                    {
+                      "description": "Community Account's client_id",
+                      "type": "any",
+                      "value": "{{client_id}}",
+                      "key": "client_id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"phone_number\": \"<string>\",\n  \"communication_channel\": \"sms\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d44e798c-2ed0-4d07-baf1-5006f431e145",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscription_opt_out"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of api)",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    },
+                    {
+                      "description": " (This can only be one of v1)",
+                      "type": "any",
+                      "value": "{{version}}",
+                      "key": "version"
+                    },
+                    {
+                      "description": "Community Account's client_id",
+                      "type": "any",
+                      "value": "{{client_id}}",
+                      "key": "client_id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"phone_number\": \"<string>\",\n  \"communication_channel\": \"sms\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "19049c36-8851-4ffa-8895-7ab77a6d3fc3",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscription_opt_out"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of api)",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    },
+                    {
+                      "description": " (This can only be one of v1)",
+                      "type": "any",
+                      "value": "{{version}}",
+                      "key": "version"
+                    },
+                    {
+                      "description": "Community Account's client_id",
+                      "type": "any",
+                      "value": "{{client_id}}",
+                      "key": "client_id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"phone_number\": \"<string>\",\n  \"communication_channel\": \"sms\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d6a73172-c730-4e69-9ae7-37aec90944f6",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscription_opt_out"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of api)",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    },
+                    {
+                      "description": " (This can only be one of v1)",
+                      "type": "any",
+                      "value": "{{version}}",
+                      "key": "version"
+                    },
+                    {
+                      "description": "Community Account's client_id",
+                      "type": "any",
+                      "value": "{{client_id}}",
+                      "key": "client_id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"phone_number\": \"<string>\",\n  \"communication_channel\": \"sms\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d94c867-f727-4240-b929-b3d48b577e45",
+          "name": "Add / Remove Member from Subcommunity",
+          "request": {
+            "name": "Add / Remove Member from Subcommunity",
+            "description": {
+              "content": "You can either pass in the subcommunity ID (`tag_id`) or the `tag` name. If you provide both, `tag_id` takes precedence.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscription_tag_modify"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": " (This can only be one of api)",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                },
+                {
+                  "description": " (This can only be one of v1)",
+                  "type": "any",
+                  "value": "{{version}}",
+                  "key": "version"
+                },
+                {
+                  "description": "Community Account's client_id",
+                  "type": "any",
+                  "value": "{{client_id}}",
+                  "key": "client_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tag_id\": \"<uuid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a3588435-e282-4675-a88f-364ef1222969",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscription_tag_modify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of api)",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    },
+                    {
+                      "description": " (This can only be one of v1)",
+                      "type": "any",
+                      "value": "{{version}}",
+                      "key": "version"
+                    },
+                    {
+                      "description": "Community Account's client_id",
+                      "type": "any",
+                      "value": "{{client_id}}",
+                      "key": "client_id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tag_id\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "99c30bf0-1043-410b-a7d6-ebf6931e29b8",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscription_tag_modify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of api)",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    },
+                    {
+                      "description": " (This can only be one of v1)",
+                      "type": "any",
+                      "value": "{{version}}",
+                      "key": "version"
+                    },
+                    {
+                      "description": "Community Account's client_id",
+                      "type": "any",
+                      "value": "{{client_id}}",
+                      "key": "client_id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tag_id\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "12f37818-e400-49eb-ada5-68632c2187f3",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscription_tag_modify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of api)",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    },
+                    {
+                      "description": " (This can only be one of v1)",
+                      "type": "any",
+                      "value": "{{version}}",
+                      "key": "version"
+                    },
+                    {
+                      "description": "Community Account's client_id",
+                      "type": "any",
+                      "value": "{{client_id}}",
+                      "key": "client_id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tag_id\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3165f719-5103-4581-a24c-8350994b2d31",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscription_tag_modify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of api)",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    },
+                    {
+                      "description": " (This can only be one of v1)",
+                      "type": "any",
+                      "value": "{{version}}",
+                      "key": "version"
+                    },
+                    {
+                      "description": "Community Account's client_id",
+                      "type": "any",
+                      "value": "{{client_id}}",
+                      "key": "client_id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tag_id\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b20e8b16-9d7d-4ce9-9cba-eb69ecb1fa9a",
+              "name": "Unsupported media type",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscription_tag_modify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of api)",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    },
+                    {
+                      "description": " (This can only be one of v1)",
+                      "type": "any",
+                      "value": "{{version}}",
+                      "key": "version"
+                    },
+                    {
+                      "description": "Community Account's client_id",
+                      "type": "any",
+                      "value": "{{client_id}}",
+                      "key": "client_id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tag_id\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": " (This can only be one of api)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "api",
+      "key": "environment"
+    },
+    {
+      "description": {
+        "content": " (This can only be one of v1)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "v1",
+      "key": "version"
+    },
+    {
+      "description": {
+        "content": "Community Account's client_id",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<client_id>",
+      "key": "client_id"
+    },
+    {
+      "type": "string",
+      "value": "https://{{environment}}.community.com/webhooks/{{version}}/community/{{client_id}}",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d22674b2-c51d-42dd-862d-af10872ccc05",
+    "name": "Async REST member-data API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for Community clients to manage their subscribers, send messages, and more.\n\nContact Support:\n Email: saleseng@community.com",
+      "type": "text/plain"
+    }
+  }
+}

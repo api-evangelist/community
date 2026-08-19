@@ -1,0 +1,458 @@
+{
+  "item": [
+    {
+      "id": "b6466e9c-68fc-4088-a40b-b240b90b1d03",
+      "name": "messaging",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6a2f7863-0a87-49f0-90cc-818b6143abd2",
+          "name": "Send Direct Message",
+          "request": {
+            "name": "Send Direct Message",
+            "description": {},
+            "url": {
+              "path": [
+                "message_send"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": " (This can only be one of api)",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                },
+                {
+                  "description": " (This can only be one of v1)",
+                  "type": "any",
+                  "value": "{{version}}",
+                  "key": "version"
+                },
+                {
+                  "description": "Community Account's client_id",
+                  "type": "any",
+                  "value": "{{client_id}}",
+                  "key": "client_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"phone_number\": \"<string>\",\n  \"text\": \"<string>\",\n  \"communication_channel\": \"sms\",\n  \"override_quiet_hours\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6b6afdf9-78d1-4298-abfe-bdc77105c43b",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "message_send"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of api)",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    },
+                    {
+                      "description": " (This can only be one of v1)",
+                      "type": "any",
+                      "value": "{{version}}",
+                      "key": "version"
+                    },
+                    {
+                      "description": "Community Account's client_id",
+                      "type": "any",
+                      "value": "{{client_id}}",
+                      "key": "client_id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"phone_number\": \"15557771212\",\n  \"communication_channel\": \"sms\",\n  \"text\": \"Hello there, I hope you are having a good day.\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6646fde4-9f7b-498c-a2f5-799901997534",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "message_send"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of api)",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    },
+                    {
+                      "description": " (This can only be one of v1)",
+                      "type": "any",
+                      "value": "{{version}}",
+                      "key": "version"
+                    },
+                    {
+                      "description": "Community Account's client_id",
+                      "type": "any",
+                      "value": "{{client_id}}",
+                      "key": "client_id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"phone_number\": \"15557771212\",\n  \"communication_channel\": \"sms\",\n  \"text\": \"Hello there, I hope you are having a good day.\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "20bc7e19-533b-4884-8b56-4e24250d1f34",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "message_send"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of api)",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    },
+                    {
+                      "description": " (This can only be one of v1)",
+                      "type": "any",
+                      "value": "{{version}}",
+                      "key": "version"
+                    },
+                    {
+                      "description": "Community Account's client_id",
+                      "type": "any",
+                      "value": "{{client_id}}",
+                      "key": "client_id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"phone_number\": \"15557771212\",\n  \"communication_channel\": \"sms\",\n  \"text\": \"Hello there, I hope you are having a good day.\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5f22307e-d9b2-4316-97fb-3240284fa491",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "message_send"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of api)",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    },
+                    {
+                      "description": " (This can only be one of v1)",
+                      "type": "any",
+                      "value": "{{version}}",
+                      "key": "version"
+                    },
+                    {
+                      "description": "Community Account's client_id",
+                      "type": "any",
+                      "value": "{{client_id}}",
+                      "key": "client_id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"phone_number\": \"15557771212\",\n  \"communication_channel\": \"sms\",\n  \"text\": \"Hello there, I hope you are having a good day.\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c49439fd-89bc-464a-9683-613896b473ca",
+              "name": "Unsupported media type",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "message_send"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of api)",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    },
+                    {
+                      "description": " (This can only be one of v1)",
+                      "type": "any",
+                      "value": "{{version}}",
+                      "key": "version"
+                    },
+                    {
+                      "description": "Community Account's client_id",
+                      "type": "any",
+                      "value": "{{client_id}}",
+                      "key": "client_id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"phone_number\": \"15557771212\",\n  \"communication_channel\": \"sms\",\n  \"text\": \"Hello there, I hope you are having a good day.\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": " (This can only be one of api)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "api",
+      "key": "environment"
+    },
+    {
+      "description": {
+        "content": " (This can only be one of v1)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "v1",
+      "key": "version"
+    },
+    {
+      "description": {
+        "content": "Community Account's client_id",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<client_id>",
+      "key": "client_id"
+    },
+    {
+      "type": "string",
+      "value": "https://{{environment}}.community.com/webhooks/{{version}}/community/{{client_id}}",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7792a10b-9660-4a3c-94d9-97f454ca4a9b",
+    "name": "Async REST member-data messaging API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for Community clients to manage their subscribers, send messages, and more.\n\nContact Support:\n Email: saleseng@community.com",
+      "type": "text/plain"
+    }
+  }
+}

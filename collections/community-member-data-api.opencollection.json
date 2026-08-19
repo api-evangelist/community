@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Async REST member-data API",
+    "version": "0.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "member-data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Invite / Update Member",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{environment}.community.com/webhooks/{version}/community/{client_id}/subscription_create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Invite / Update Member"
+        },
+        {
+          "info": {
+            "name": "Upsert Custom Member Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{environment}.community.com/webhooks/{version}/community/{client_id}/subscription_field_value_modify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Upsert Custom Member Data"
+        },
+        {
+          "info": {
+            "name": "Member Opt-Out",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{environment}.community.com/webhooks/{version}/community/{client_id}/subscription_opt_out",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Member Opt-Out"
+        },
+        {
+          "info": {
+            "name": "Add / Remove Member from Subcommunity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{environment}.community.com/webhooks/{version}/community/{client_id}/subscription_tag_modify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "You can either pass in the subcommunity ID (`tag_id`) or the `tag` name. If you provide both, `tag_id` takes precedence."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

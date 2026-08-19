@@ -1,0 +1,42 @@
+generated: '2026-08-13'
+method: searched
+source: https://developer.community.com/reference/testing
+available: false
+test_live_separation: false
+test_credentials: []
+test_values: []
+test_clock: false
+fixtures: false
+notes: >-
+  Community ships NO sandbox and says so explicitly. Its Testing Best Practices
+  page states: "While other tools recommend that you work and test in sandbox
+  environments, this is often not advisable in the messaging space, since
+  provisioning an environment requires a telephone number, which requires TCR
+  registration. Your best bet is to test in your production account." There are
+  therefore no test-mode API keys, no key-prefix separation (the single
+  community_api token prefix is live), no magic test numbers, no test clocks
+  and no fixture tooling. No Sandbox scoring pointer is wired — the provider
+  documents the ABSENCE of a sandbox, and crediting that as a console/sandbox
+  surface would be false.
+documented_testing_guidance:
+- guidance: Test in your production account against your own known numbers.
+  detail: Use U.S. or Canadian mobile numbers (e.g. personal or Google Voice numbers).
+- guidance: Test content must be compliant.
+  detail: >-
+    Traffic is real and flows from your registered number through the carriers,
+    so test content must comply with Community's Acceptable Use Policy.
+  url: https://www.community.com/legal/aup
+- guidance: VOIP test numbers degrade.
+  detail: >-
+    With VOIP services such as Google Voice, messages may be routed to spam and
+    attachments (e.g. .vcf contact cards) may be stripped from the message.
+- guidance: A telephone number requires TCR registration.
+  detail: >-
+    The reason no sandbox exists — provisioning a messaging environment requires
+    a real number, which requires The Campaign Registry (10DLC) registration.
+  url: https://www.community.com/legal/tcr-faq
+- guidance: Campaigns carry a test flag in exported data.
+  detail: >-
+    The Data Export campaigns.csv.gz file carries a TEST_CAMPAIGN column, so
+    test sends made in production can be separated out in reporting.
+  url: https://developer.community.com/reference/data-export-api-downloading-data
