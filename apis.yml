@@ -41,6 +41,15 @@ tags:
 - Conversational
 - Marketing
 - Creators
+- Webhook
+- Company
+tags_raw:
+- Messaging
+- SMS
+- Communications
+- Conversational
+- Marketing
+- Creators
 - Webhooks
 - Company
 apis:
@@ -80,6 +89,8 @@ apis:
   humanURL: https://developer.community.com/reference/getting-started-with-your-api
   baseURL: https://api.community.com/webhooks/v1/community
   tags:
+  - Messaging
+  tags_raw:
   - messaging
   properties:
   - type: OpenAPI
@@ -94,6 +105,8 @@ apis:
   humanURL: https://developer.community.com/reference/getting-started-with-your-api
   baseURL: https://api.community.com/webhooks/v1/community
   tags:
+  - Tags
+  tags_raw:
   - tags
   properties:
   - type: OpenAPI
