@@ -1,0 +1,36 @@
+slug: community
+provider: Community
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Telecommunications
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: member-data
+  spec_file: community-member-data-api-openapi.yml
+  capability_id: BC-420.10
+  capability_id_l1: BC-420
+  capability_name: Customer Data Management
+  confidence: 0.7
+  evidence: POST /subscription_create upsert-member Invite / Update Member; POST /subscription_field_value_modify
+    upsert-member-custom-data Upsert Custom Member Data
+  reason: Manages subscriber/member records and custom attributes plus opt-out for a brand's audience
+    — customer/subscriber data management for marketing messaging. Opt-out and segment tagging also touch
+    consent, but core is customer data.
+- tag: tags
+  spec_file: community-tags-api-openapi.yml
+  capability_id: BC-420.20
+  capability_id_l1: BC-420
+  capability_name: Customer Segmentation Management
+  confidence: 0.7
+  evidence: POST /tag_create tag-create Create a Subcommunity; POST /tag_keyword_modify Add / Remove keywords
+    from Subcommunity
+  reason: Tags define 'Subcommunities' — audience subsets used for targeted messaging, i.e. segmentation
+    of the subscriber base rather than a generic labelling utility.
