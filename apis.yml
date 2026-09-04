@@ -31,16 +31,20 @@ deliveryModel:
   generated: '2026-08-28'
   method: derived
 accessModel:
-  pricing: unknown
-  onboarding: self-serve
+  pricing: paid
+  onboarding: approval
   trial: false
   try_now: false
   public: false
-  label: Self-serve signup
-  confidence: medium
+  label: Paid · Requires approval
+  confidence: high
   source:
+  - plans
   - authentication
-  generated: '2026-07-22'
+  - rate-limits
+  - security
+  - sandbox
+  generated: '2026-09-03'
   method: derived
 image: https://community.com/og-image.jpg
 specificationVersion: '0.23'
@@ -146,8 +150,9 @@ common:
   url: https://developer.community.com/reference/getting-started-with-your-api
 - type: LLMsTxt
   url: llms/community-llms.txt
-- type: MCPServer
+- type: X-MCPServerCandidate
   url: mcp/community-mcp.yml
+  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type surfaces with a server that does not exist.'
 - type: Overlay
   url: overlays/community-async-overlay.yaml
 - type: Conformance
