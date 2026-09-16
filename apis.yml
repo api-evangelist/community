@@ -91,6 +91,8 @@ apis:
   humanURL: https://developer.community.com/reference/getting-started-with-your-api
   baseURL: https://api.community.com/webhooks/v1/community
   tags:
+  - Member Data
+  tags_raw:
   - member-data
   properties:
   - type: OpenAPI
