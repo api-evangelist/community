@@ -1,9 +1,7 @@
 {
   "provider": "community",
   "sources": [
-    "community-member-data-api-openapi.yml",
-    "community-messaging-api-openapi.yml",
-    "community-tags-api-openapi.yml"
+    "_original/community-async-openapi-original.yml"
   ],
   "outputs": [
     "community-member-data-api-openapi.yml",
@@ -13,6 +11,17 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "community-async-openapi-original.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "community-async-openapi-original.yml: declared missing tag: member-data",
+    "community-async-openapi-original.yml: declared missing tag: messaging",
+    "community-async-openapi-original.yml: declared missing tag: tags",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "community-member-data-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "community-messaging-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "community-tags-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

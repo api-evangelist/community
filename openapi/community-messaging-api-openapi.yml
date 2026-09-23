@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Async REST member-data messaging API
+  title: Async REST Messaging API
   description: API for Community clients to manage their subscribers, send messages, and more.
   version: 0.1.0
   contact:
@@ -23,12 +23,12 @@ security:
 - bearerAuth: []
 - oAuth: []
 tags:
-- name: messaging
+- name: Messaging
 paths:
   /message_send:
     post:
       tags:
-      - messaging
+      - Messaging
       summary: Send Direct Message
       operationId: send-message
       responses:
@@ -65,13 +65,16 @@ components:
     NumberString:
       type: string
       pattern: ^\d+$
-    Boolean:
-      type: boolean
-    PhoneNumber:
-      description: include country code
+    String400:
       type: string
       allOf:
-      - $ref: '#/components/schemas/NumberString'
+      - $ref: '#/components/schemas/NonEmptyString'
+      - maxLength: 400
+    Boolean:
+      type: boolean
+    NonEmptyString:
+      type: string
+      pattern: \S
     message_send:
       type: object
       required:
@@ -86,14 +89,11 @@ components:
           $ref: '#/components/schemas/String400'
         override_quiet_hours:
           $ref: '#/components/schemas/Boolean'
-    NonEmptyString:
-      type: string
-      pattern: \S
-    String400:
+    PhoneNumber:
+      description: include country code
       type: string
       allOf:
-      - $ref: '#/components/schemas/NonEmptyString'
-      - maxLength: 400
+      - $ref: '#/components/schemas/NumberString'
     CommunicationChannel:
       description: only sms and whatsapp are supported at the moment.
       type: string

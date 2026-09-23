@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Async REST member-data API
+  title: Async REST Member Data API
   description: API for Community clients to manage their subscribers, send messages, and more.
   version: 0.1.0
   contact:
@@ -114,75 +114,23 @@ paths:
               $ref: '#/components/schemas/subscription_tag_modify'
 components:
   schemas:
-    NumberString:
-      type: string
-      pattern: ^\d+$
     tag_id:
       type: object
       properties:
         tag_id:
           $ref: '#/components/schemas/UUID'
-    UUID:
+    NumberString:
       type: string
-      format: uuid
-    Geolocation:
-      type: object
-      required:
-      - latitude
-      - longitude
-      properties:
-        latitude:
-          $ref: '#/components/schemas/Latitude'
-        longitude:
-          $ref: '#/components/schemas/Longitude'
-    NonEmptyString:
-      type: string
-      pattern: \S
-    subscription_tag_modify:
-      type: object
-      required:
-      - phone_number
-      - operation
-      anyOf:
-      - $ref: '#/components/schemas/tag_id'
-      - $ref: '#/components/schemas/tag_name'
-      properties:
-        phone_number:
-          $ref: '#/components/schemas/PhoneNumber'
-        communication_channel:
-          $ref: '#/components/schemas/CommunicationChannel'
-        operation:
-          type: string
-          enum:
-          - add
-          - remove
-    subscription_field_value_modify:
-      description: At the moment we accept all primitive types, except for null
-      type: object
-      required:
-      - phone_number
-      - custom_fields
-      properties:
-        phone_number:
-          $ref: '#/components/schemas/PhoneNumber'
-        communication_channel:
-          $ref: '#/components/schemas/CommunicationChannel'
-        custom_fields:
-          type: object
-    PhoneNumber:
-      description: include country code
-      type: string
-      allOf:
-      - $ref: '#/components/schemas/NumberString'
+      pattern: ^\d+$
+    Longitude:
+      type: number
+      minimum: -180
+      maximum: 180
     tag_name:
       type: object
       properties:
         tag:
           $ref: '#/components/schemas/String60'
-    Longitude:
-      type: number
-      minimum: -180
-      maximum: 180
     subscription_create:
       type: object
       required:
@@ -274,10 +222,57 @@ components:
       allOf:
       - $ref: '#/components/schemas/NonEmptyString'
       - maxLength: 60
+    UUID:
+      type: string
+      format: uuid
+    Geolocation:
+      type: object
+      required:
+      - latitude
+      - longitude
+      properties:
+        latitude:
+          $ref: '#/components/schemas/Latitude'
+        longitude:
+          $ref: '#/components/schemas/Longitude'
+    subscription_field_value_modify:
+      description: At the moment we accept all primitive types, except for null
+      type: object
+      required:
+      - phone_number
+      - custom_fields
+      properties:
+        phone_number:
+          $ref: '#/components/schemas/PhoneNumber'
+        communication_channel:
+          $ref: '#/components/schemas/CommunicationChannel'
+        custom_fields:
+          type: object
     Latitude:
       type: number
       minimum: -90
       maximum: 90
+    NonEmptyString:
+      type: string
+      pattern: \S
+    subscription_tag_modify:
+      type: object
+      required:
+      - phone_number
+      - operation
+      anyOf:
+      - $ref: '#/components/schemas/tag_id'
+      - $ref: '#/components/schemas/tag_name'
+      properties:
+        phone_number:
+          $ref: '#/components/schemas/PhoneNumber'
+        communication_channel:
+          $ref: '#/components/schemas/CommunicationChannel'
+        operation:
+          type: string
+          enum:
+          - add
+          - remove
     subscription_opt_out:
       type: object
       required:
@@ -287,6 +282,11 @@ components:
           $ref: '#/components/schemas/PhoneNumber'
         communication_channel:
           $ref: '#/components/schemas/CommunicationChannel'
+    PhoneNumber:
+      description: include country code
+      type: string
+      allOf:
+      - $ref: '#/components/schemas/NumberString'
     CommunicationChannel:
       description: only sms and whatsapp are supported at the moment.
       type: string

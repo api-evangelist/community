@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Async REST member-data tags API
+  title: Async REST Tags API
   description: API for Community clients to manage their subscribers, send messages, and more.
   version: 0.1.0
   contact:
@@ -23,12 +23,12 @@ security:
 - bearerAuth: []
 - oAuth: []
 tags:
-- name: tags
+- name: Tags
 paths:
   /tag_create:
     post:
       tags:
-      - tags
+      - Tags
       summary: Create a Subcommunity
       operationId: tag-create
       responses:
@@ -49,7 +49,7 @@ paths:
   /tag_delete:
     post:
       tags:
-      - tags
+      - Tags
       summary: Delete a Subcommunity
       description: You can either pass in the subcommunity ID (`tag_id`) or the `title`. If you provide both, `tag_id` takes precedence.
       operationId: tag-delete
@@ -71,7 +71,7 @@ paths:
   /tag_update:
     post:
       tags:
-      - tags
+      - Tags
       summary: Update a Subcommunity
       description: 'Similar as the tag_create operation, this will update the desired tag (Subcommunity), identified by the provided `tag_id`.
 
@@ -96,7 +96,7 @@ paths:
   /tag_keyword_modify:
     post:
       tags:
-      - tags
+      - Tags
       summary: Add / Remove keywords from Subcommunity
       description: You can either pass in the subcommunity ID (`tag_id`) or the `title`. If you provide both, `tag_id` takes precedence.
       operationId: tag-keyword-modify
@@ -117,9 +117,6 @@ paths:
               $ref: '#/components/schemas/tag_keyword_modify'
 components:
   schemas:
-    UUID:
-      type: string
-      format: uuid
     tag_create:
       type: object
       required:
@@ -136,14 +133,14 @@ components:
           description: A list of keywords that will automatically add a member to this Subcommunity
           items:
             $ref: '#/components/schemas/String50'
+    tag_id:
+      type: object
+      properties:
+        tag_id:
+          $ref: '#/components/schemas/UUID'
     RGBColor:
       type: string
       pattern: ^#[A-Fa-f0-9]{6}$
-    tag_title:
-      type: object
-      properties:
-        title:
-          $ref: '#/components/schemas/String60'
     tag_update:
       type: object
       required:
@@ -162,11 +159,19 @@ components:
           description: A list of keywords that will automatically add a member to this Subcommunity
           items:
             $ref: '#/components/schemas/String50'
-    tag_delete:
+    tag_title:
       type: object
-      anyOf:
-      - $ref: '#/components/schemas/tag_id'
-      - $ref: '#/components/schemas/tag_title'
+      properties:
+        title:
+          $ref: '#/components/schemas/String60'
+    UUID:
+      type: string
+      format: uuid
+    String60:
+      type: string
+      allOf:
+      - $ref: '#/components/schemas/NonEmptyString'
+      - maxLength: 60
     tag_keyword_modify:
       type: object
       required:
@@ -183,24 +188,19 @@ components:
           enum:
           - add
           - remove
-    String60:
-      type: string
-      allOf:
-      - $ref: '#/components/schemas/NonEmptyString'
-      - maxLength: 60
-    NonEmptyString:
-      type: string
-      pattern: \S
-    tag_id:
-      type: object
-      properties:
-        tag_id:
-          $ref: '#/components/schemas/UUID'
     String50:
       type: string
       allOf:
       - $ref: '#/components/schemas/NonEmptyString'
       - maxLength: 50
+    tag_delete:
+      type: object
+      anyOf:
+      - $ref: '#/components/schemas/tag_id'
+      - $ref: '#/components/schemas/tag_title'
+    NonEmptyString:
+      type: string
+      pattern: \S
   securitySchemes:
     bearerAuth:
       type: http

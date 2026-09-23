@@ -38,16 +38,7 @@ tools:
   source_operation: openapi/community-async-openapi-original.yml#tag-keyword-modify
 deployment:
   mode: none
-  endpoint: null
-  install: null
-  package: null
-  auth: unknown
   verified: derived
   tools: 9
-  checked: '2026-08-13'
-  source: >-
-    catalog MCP census (2026-08-12), re-checked 2026-08-13 against
-    registry.modelcontextprotocol.io/v0/servers?search=community (no Community
-    entry), npm, and developer.community.com/llms.txt. Community ships neither a
-    remote MCP endpoint nor a local stdio package; mode is none because this
-    tool list is our derived candidate, not a provider surface.
+  checked: '2026-08-12'
+  source: catalog MCP census

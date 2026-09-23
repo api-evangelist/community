@@ -1,0 +1,26 @@
+# Front Door AI Index — community — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: community
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: community.com
+  final_host: community.com
+  ownership: own
+  owner: community
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 5
+  host_score: 5
+  density: 3.05
+  words: 1638
+  tiers:
+    agentic: 1
+    core: 4
+    model: 0
+  ambiguous: 0
+  top_terms:
+    AI: 4
+    chatbot: 1
