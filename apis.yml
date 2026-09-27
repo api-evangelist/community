@@ -50,11 +50,13 @@ image: https://community.com/og-image.jpg
 specificationVersion: '0.23'
 created: '2026-07-17'
 modified: '2026-08-13'
+x-docs-platform: readme
+x-docs-platform-confidence: high
+x-docs-platform-checked: 2026-09-24
 tags:
 - Messaging
 - SMS
 - Communications
-- Conversational
 - Marketing
 - Creators
 - Webhook
@@ -63,7 +65,6 @@ tags_raw:
 - Messaging
 - SMS
 - Communications
-- Conversational
 - Marketing
 - Creators
 - Webhooks
@@ -86,7 +87,7 @@ apis:
   - url: https://developer.community.com/reference/data-export-introduction
     type: Documentation
 - aid: community:community-member-data-api
-  name: Community member-data API
+  name: Community Member Data API
   description: The member-data API from Community — 4 operation(s) for member-data.
   humanURL: https://developer.community.com/reference/getting-started-with-your-api
   baseURL: https://api.community.com/webhooks/v1/community
@@ -102,7 +103,7 @@ apis:
   - type: APIReference
     url: https://developer.community.com/reference/send-message
 - aid: community:community-messaging-api
-  name: Community messaging API
+  name: Community Messaging API
   description: The messaging API from Community — 1 operation(s) for messaging.
   humanURL: https://developer.community.com/reference/getting-started-with-your-api
   baseURL: https://api.community.com/webhooks/v1/community
@@ -118,7 +119,7 @@ apis:
   - type: APIReference
     url: https://developer.community.com/reference/send-message
 - aid: community:community-tags-api
-  name: Community tags API
+  name: Community Tags API
   description: The tags API from Community — 4 operation(s) for tags.
   humanURL: https://developer.community.com/reference/getting-started-with-your-api
   baseURL: https://api.community.com/webhooks/v1/community
@@ -210,3 +211,5 @@ x-enrichment:
   status: enriched
   artifacts_added: 4
   pass: local-v1
+x-tags-removed:
+- Conversational AI

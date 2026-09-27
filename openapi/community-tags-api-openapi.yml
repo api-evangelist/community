@@ -117,6 +117,27 @@ paths:
               $ref: '#/components/schemas/tag_keyword_modify'
 components:
   schemas:
+    tag_keyword_modify:
+      type: object
+      required:
+      - keyword
+      - operation
+      anyOf:
+      - $ref: '#/components/schemas/tag_id'
+      - $ref: '#/components/schemas/tag_title'
+      properties:
+        keyword:
+          $ref: '#/components/schemas/String50'
+        operation:
+          type: string
+          enum:
+          - add
+          - remove
+    tag_id:
+      type: object
+      properties:
+        tag_id:
+          $ref: '#/components/schemas/UUID'
     tag_create:
       type: object
       required:
@@ -133,14 +154,22 @@ components:
           description: A list of keywords that will automatically add a member to this Subcommunity
           items:
             $ref: '#/components/schemas/String50'
-    tag_id:
-      type: object
-      properties:
-        tag_id:
-          $ref: '#/components/schemas/UUID'
+    String60:
+      type: string
+      allOf:
+      - $ref: '#/components/schemas/NonEmptyString'
+      - maxLength: 60
     RGBColor:
       type: string
       pattern: ^#[A-Fa-f0-9]{6}$
+    String50:
+      type: string
+      allOf:
+      - $ref: '#/components/schemas/NonEmptyString'
+      - maxLength: 50
+    UUID:
+      type: string
+      format: uuid
     tag_update:
       type: object
       required:
@@ -164,35 +193,6 @@ components:
       properties:
         title:
           $ref: '#/components/schemas/String60'
-    UUID:
-      type: string
-      format: uuid
-    String60:
-      type: string
-      allOf:
-      - $ref: '#/components/schemas/NonEmptyString'
-      - maxLength: 60
-    tag_keyword_modify:
-      type: object
-      required:
-      - keyword
-      - operation
-      anyOf:
-      - $ref: '#/components/schemas/tag_id'
-      - $ref: '#/components/schemas/tag_title'
-      properties:
-        keyword:
-          $ref: '#/components/schemas/String50'
-        operation:
-          type: string
-          enum:
-          - add
-          - remove
-    String50:
-      type: string
-      allOf:
-      - $ref: '#/components/schemas/NonEmptyString'
-      - maxLength: 50
     tag_delete:
       type: object
       anyOf:
