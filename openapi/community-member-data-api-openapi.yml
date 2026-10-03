@@ -114,9 +114,68 @@ paths:
               $ref: '#/components/schemas/subscription_tag_modify'
 components:
   schemas:
-    NumberString:
+    subscription_tag_modify:
+      type: object
+      required:
+      - phone_number
+      - operation
+      anyOf:
+      - $ref: '#/components/schemas/tag_id'
+      - $ref: '#/components/schemas/tag_name'
+      properties:
+        phone_number:
+          $ref: '#/components/schemas/PhoneNumber'
+        communication_channel:
+          $ref: '#/components/schemas/CommunicationChannel'
+        operation:
+          type: string
+          enum:
+          - add
+          - remove
+    tag_name:
+      type: object
+      properties:
+        tag:
+          $ref: '#/components/schemas/String60'
+    Longitude:
+      type: number
+      minimum: -180
+      maximum: 180
+    PhoneNumber:
+      description: include country code
       type: string
-      pattern: ^\d+$
+      allOf:
+      - $ref: '#/components/schemas/NumberString'
+    subscription_field_value_modify:
+      description: At the moment we accept all primitive types, except for null
+      type: object
+      required:
+      - phone_number
+      - custom_fields
+      properties:
+        phone_number:
+          $ref: '#/components/schemas/PhoneNumber'
+        communication_channel:
+          $ref: '#/components/schemas/CommunicationChannel'
+        custom_fields:
+          type: object
+    Latitude:
+      type: number
+      minimum: -90
+      maximum: 90
+    tag_id:
+      type: object
+      properties:
+        tag_id:
+          $ref: '#/components/schemas/UUID'
+    String60:
+      type: string
+      allOf:
+      - $ref: '#/components/schemas/NonEmptyString'
+      - maxLength: 60
+    NonEmptyString:
+      type: string
+      pattern: \S
     subscription_create:
       type: object
       required:
@@ -203,14 +262,13 @@ components:
 
 
             When omitted, the activation mode is determined by the account''s source configuration.'
-    Longitude:
-      type: number
-      minimum: -180
-      maximum: 180
-    Latitude:
-      type: number
-      minimum: -90
-      maximum: 90
+    CommunicationChannel:
+      description: only sms and whatsapp are supported at the moment.
+      type: string
+      enum:
+      - sms
+      - whatsapp
+      default: sms
     subscription_opt_out:
       type: object
       required:
@@ -220,49 +278,9 @@ components:
           $ref: '#/components/schemas/PhoneNumber'
         communication_channel:
           $ref: '#/components/schemas/CommunicationChannel'
-    CommunicationChannel:
-      description: only sms and whatsapp are supported at the moment.
+    UUID:
       type: string
-      enum:
-      - sms
-      - whatsapp
-      default: sms
-    subscription_tag_modify:
-      type: object
-      required:
-      - phone_number
-      - operation
-      anyOf:
-      - $ref: '#/components/schemas/tag_id'
-      - $ref: '#/components/schemas/tag_name'
-      properties:
-        phone_number:
-          $ref: '#/components/schemas/PhoneNumber'
-        communication_channel:
-          $ref: '#/components/schemas/CommunicationChannel'
-        operation:
-          type: string
-          enum:
-          - add
-          - remove
-    tag_id:
-      type: object
-      properties:
-        tag_id:
-          $ref: '#/components/schemas/UUID'
-    subscription_field_value_modify:
-      description: At the moment we accept all primitive types, except for null
-      type: object
-      required:
-      - phone_number
-      - custom_fields
-      properties:
-        phone_number:
-          $ref: '#/components/schemas/PhoneNumber'
-        communication_channel:
-          $ref: '#/components/schemas/CommunicationChannel'
-        custom_fields:
-          type: object
+      format: uuid
     Geolocation:
       type: object
       required:
@@ -273,27 +291,9 @@ components:
           $ref: '#/components/schemas/Latitude'
         longitude:
           $ref: '#/components/schemas/Longitude'
-    tag_name:
-      type: object
-      properties:
-        tag:
-          $ref: '#/components/schemas/String60'
-    UUID:
+    NumberString:
       type: string
-      format: uuid
-    PhoneNumber:
-      description: include country code
-      type: string
-      allOf:
-      - $ref: '#/components/schemas/NumberString'
-    String60:
-      type: string
-      allOf:
-      - $ref: '#/components/schemas/NonEmptyString'
-      - maxLength: 60
-    NonEmptyString:
-      type: string
-      pattern: \S
+      pattern: ^\d+$
   securitySchemes:
     bearerAuth:
       type: http

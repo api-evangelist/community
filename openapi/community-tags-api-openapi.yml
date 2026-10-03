@@ -117,22 +117,9 @@ paths:
               $ref: '#/components/schemas/tag_keyword_modify'
 components:
   schemas:
-    tag_keyword_modify:
-      type: object
-      required:
-      - keyword
-      - operation
-      anyOf:
-      - $ref: '#/components/schemas/tag_id'
-      - $ref: '#/components/schemas/tag_title'
-      properties:
-        keyword:
-          $ref: '#/components/schemas/String50'
-        operation:
-          type: string
-          enum:
-          - add
-          - remove
+    RGBColor:
+      type: string
+      pattern: ^#[A-Fa-f0-9]{6}$
     tag_id:
       type: object
       properties:
@@ -159,17 +146,19 @@ components:
       allOf:
       - $ref: '#/components/schemas/NonEmptyString'
       - maxLength: 60
-    RGBColor:
+    NonEmptyString:
       type: string
-      pattern: ^#[A-Fa-f0-9]{6}$
+      pattern: \S
     String50:
       type: string
       allOf:
       - $ref: '#/components/schemas/NonEmptyString'
       - maxLength: 50
-    UUID:
-      type: string
-      format: uuid
+    tag_delete:
+      type: object
+      anyOf:
+      - $ref: '#/components/schemas/tag_id'
+      - $ref: '#/components/schemas/tag_title'
     tag_update:
       type: object
       required:
@@ -188,19 +177,30 @@ components:
           description: A list of keywords that will automatically add a member to this Subcommunity
           items:
             $ref: '#/components/schemas/String50'
+    tag_keyword_modify:
+      type: object
+      required:
+      - keyword
+      - operation
+      anyOf:
+      - $ref: '#/components/schemas/tag_id'
+      - $ref: '#/components/schemas/tag_title'
+      properties:
+        keyword:
+          $ref: '#/components/schemas/String50'
+        operation:
+          type: string
+          enum:
+          - add
+          - remove
     tag_title:
       type: object
       properties:
         title:
           $ref: '#/components/schemas/String60'
-    tag_delete:
-      type: object
-      anyOf:
-      - $ref: '#/components/schemas/tag_id'
-      - $ref: '#/components/schemas/tag_title'
-    NonEmptyString:
+    UUID:
       type: string
-      pattern: \S
+      format: uuid
   securitySchemes:
     bearerAuth:
       type: http

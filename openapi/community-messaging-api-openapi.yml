@@ -62,16 +62,6 @@ paths:
                   override_quiet_hours: true
 components:
   schemas:
-    NumberString:
-      type: string
-      pattern: ^\d+$
-    CommunicationChannel:
-      description: only sms and whatsapp are supported at the moment.
-      type: string
-      enum:
-      - sms
-      - whatsapp
-      default: sms
     PhoneNumber:
       description: include country code
       type: string
@@ -93,14 +83,24 @@ components:
           $ref: '#/components/schemas/String400'
         override_quiet_hours:
           $ref: '#/components/schemas/Boolean'
+    NonEmptyString:
+      type: string
+      pattern: \S
     String400:
       type: string
       allOf:
       - $ref: '#/components/schemas/NonEmptyString'
       - maxLength: 400
-    NonEmptyString:
+    CommunicationChannel:
+      description: only sms and whatsapp are supported at the moment.
       type: string
-      pattern: \S
+      enum:
+      - sms
+      - whatsapp
+      default: sms
+    NumberString:
+      type: string
+      pattern: ^\d+$
   securitySchemes:
     bearerAuth:
       type: http
