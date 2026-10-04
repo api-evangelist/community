@@ -132,50 +132,6 @@ components:
           enum:
           - add
           - remove
-    tag_name:
-      type: object
-      properties:
-        tag:
-          $ref: '#/components/schemas/String60'
-    Longitude:
-      type: number
-      minimum: -180
-      maximum: 180
-    PhoneNumber:
-      description: include country code
-      type: string
-      allOf:
-      - $ref: '#/components/schemas/NumberString'
-    subscription_field_value_modify:
-      description: At the moment we accept all primitive types, except for null
-      type: object
-      required:
-      - phone_number
-      - custom_fields
-      properties:
-        phone_number:
-          $ref: '#/components/schemas/PhoneNumber'
-        communication_channel:
-          $ref: '#/components/schemas/CommunicationChannel'
-        custom_fields:
-          type: object
-    Latitude:
-      type: number
-      minimum: -90
-      maximum: 90
-    tag_id:
-      type: object
-      properties:
-        tag_id:
-          $ref: '#/components/schemas/UUID'
-    String60:
-      type: string
-      allOf:
-      - $ref: '#/components/schemas/NonEmptyString'
-      - maxLength: 60
-    NonEmptyString:
-      type: string
-      pattern: \S
     subscription_create:
       type: object
       required:
@@ -262,25 +218,11 @@ components:
 
 
             When omitted, the activation mode is determined by the account''s source configuration.'
-    CommunicationChannel:
-      description: only sms and whatsapp are supported at the moment.
-      type: string
-      enum:
-      - sms
-      - whatsapp
-      default: sms
-    subscription_opt_out:
+    tag_id:
       type: object
-      required:
-      - phone_number
       properties:
-        phone_number:
-          $ref: '#/components/schemas/PhoneNumber'
-        communication_channel:
-          $ref: '#/components/schemas/CommunicationChannel'
-    UUID:
-      type: string
-      format: uuid
+        tag_id:
+          $ref: '#/components/schemas/UUID'
     Geolocation:
       type: object
       required:
@@ -291,9 +233,67 @@ components:
           $ref: '#/components/schemas/Latitude'
         longitude:
           $ref: '#/components/schemas/Longitude'
+    subscription_opt_out:
+      type: object
+      required:
+      - phone_number
+      properties:
+        phone_number:
+          $ref: '#/components/schemas/PhoneNumber'
+        communication_channel:
+          $ref: '#/components/schemas/CommunicationChannel'
     NumberString:
       type: string
       pattern: ^\d+$
+    UUID:
+      type: string
+      format: uuid
+    CommunicationChannel:
+      description: only sms and whatsapp are supported at the moment.
+      type: string
+      enum:
+      - sms
+      - whatsapp
+      default: sms
+    Latitude:
+      type: number
+      minimum: -90
+      maximum: 90
+    String60:
+      type: string
+      allOf:
+      - $ref: '#/components/schemas/NonEmptyString'
+      - maxLength: 60
+    NonEmptyString:
+      type: string
+      pattern: \S
+    PhoneNumber:
+      description: include country code
+      type: string
+      allOf:
+      - $ref: '#/components/schemas/NumberString'
+    tag_name:
+      type: object
+      properties:
+        tag:
+          $ref: '#/components/schemas/String60'
+    subscription_field_value_modify:
+      description: At the moment we accept all primitive types, except for null
+      type: object
+      required:
+      - phone_number
+      - custom_fields
+      properties:
+        phone_number:
+          $ref: '#/components/schemas/PhoneNumber'
+        communication_channel:
+          $ref: '#/components/schemas/CommunicationChannel'
+        custom_fields:
+          type: object
+    Longitude:
+      type: number
+      minimum: -180
+      maximum: 180
   securitySchemes:
     bearerAuth:
       type: http

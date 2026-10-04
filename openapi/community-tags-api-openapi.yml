@@ -117,48 +117,6 @@ paths:
               $ref: '#/components/schemas/tag_keyword_modify'
 components:
   schemas:
-    RGBColor:
-      type: string
-      pattern: ^#[A-Fa-f0-9]{6}$
-    tag_id:
-      type: object
-      properties:
-        tag_id:
-          $ref: '#/components/schemas/UUID'
-    tag_create:
-      type: object
-      required:
-      - title
-      properties:
-        title:
-          $ref: '#/components/schemas/String60'
-        description:
-          $ref: '#/components/schemas/NonEmptyString'
-        color:
-          $ref: '#/components/schemas/RGBColor'
-        keywords:
-          type: array
-          description: A list of keywords that will automatically add a member to this Subcommunity
-          items:
-            $ref: '#/components/schemas/String50'
-    String60:
-      type: string
-      allOf:
-      - $ref: '#/components/schemas/NonEmptyString'
-      - maxLength: 60
-    NonEmptyString:
-      type: string
-      pattern: \S
-    String50:
-      type: string
-      allOf:
-      - $ref: '#/components/schemas/NonEmptyString'
-      - maxLength: 50
-    tag_delete:
-      type: object
-      anyOf:
-      - $ref: '#/components/schemas/tag_id'
-      - $ref: '#/components/schemas/tag_title'
     tag_update:
       type: object
       required:
@@ -177,6 +135,56 @@ components:
           description: A list of keywords that will automatically add a member to this Subcommunity
           items:
             $ref: '#/components/schemas/String50'
+    RGBColor:
+      type: string
+      pattern: ^#[A-Fa-f0-9]{6}$
+    UUID:
+      type: string
+      format: uuid
+    String50:
+      type: string
+      allOf:
+      - $ref: '#/components/schemas/NonEmptyString'
+      - maxLength: 50
+    String60:
+      type: string
+      allOf:
+      - $ref: '#/components/schemas/NonEmptyString'
+      - maxLength: 60
+    tag_create:
+      type: object
+      required:
+      - title
+      properties:
+        title:
+          $ref: '#/components/schemas/String60'
+        description:
+          $ref: '#/components/schemas/NonEmptyString'
+        color:
+          $ref: '#/components/schemas/RGBColor'
+        keywords:
+          type: array
+          description: A list of keywords that will automatically add a member to this Subcommunity
+          items:
+            $ref: '#/components/schemas/String50'
+    tag_delete:
+      type: object
+      anyOf:
+      - $ref: '#/components/schemas/tag_id'
+      - $ref: '#/components/schemas/tag_title'
+    NonEmptyString:
+      type: string
+      pattern: \S
+    tag_id:
+      type: object
+      properties:
+        tag_id:
+          $ref: '#/components/schemas/UUID'
+    tag_title:
+      type: object
+      properties:
+        title:
+          $ref: '#/components/schemas/String60'
     tag_keyword_modify:
       type: object
       required:
@@ -193,14 +201,6 @@ components:
           enum:
           - add
           - remove
-    tag_title:
-      type: object
-      properties:
-        title:
-          $ref: '#/components/schemas/String60'
-    UUID:
-      type: string
-      format: uuid
   securitySchemes:
     bearerAuth:
       type: http
