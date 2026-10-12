@@ -1,0 +1,339 @@
+generated: '2026-10-12'
+method: searched
+source:
+- https://zapier.com/apps/community/integrations
+checked:
+- https://composio.dev/toolkits/community
+- https://monid.ai/tools/community
+- https://n8n.io/integrations/community/
+- https://zapier.com/apps/community/integrations
+summary: null
+marketplace_apps:
+- marketplace: zapier
+  channel: ipaas-listing
+  app: community
+  url: https://zapier.com/apps/community/integrations
+  external_url: https://www.community.com/
+  partner_tier: BRONZE
+  triggers:
+  - key: inbound_message
+    label: Message Received
+  - key: member_changed
+    label: Member Changed
+  - key: terms_response
+    label: Term Response
+  actions:
+  - key: add_to_community
+    label: Add Member to a Community
+  - key: add_to_community_via_phone_number
+    label: Add Member to a Community via Phone Number
+  - key: create_community
+    label: Create a Community
+  - key: create_new_member
+    label: Create New Member
+  - key: remove_from_community
+    label: Remove Member From a Community
+  - key: remove_from_community_via_phone_number
+    label: Remove a Member From a Community via Phone Number
+  - key: send_message
+    label: Send Message to Member
+  - key: send_message_via_phone_number
+    label: Send Message to a Member via Phone Number
+  searches: []
+edges:
+- partner_name: Kartra
+  partner: kartra
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/community/integrations/kartra
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://home.kartra.com/
+- partner_name: Eventbrite
+  partner: eventbrite
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/community/integrations/eventbrite
+  direction: third-party
+  category: Event Management
+  partner_url: https://eventbrite.com/
+- partner_name: Google Sheets
+  partner: google-sheets
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/community/integrations/google-sheets
+  direction: third-party
+  category: Google
+  partner_url: http://sheets.google.com/
+- partner_name: Slack
+  partner: slack
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/community/integrations/slack
+  direction: third-party
+  category: Team Chat
+  partner_url: https://slack.com/
+- partner_name: Circle
+  partner: circle-community
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/community/integrations/circle
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: https://circle.so/
+- partner_name: ActiveCampaign
+  partner: activecampaign
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/community/integrations/activecampaign
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://www.activecampaign.com/?utm_source=unpaid_syndication_website&utm_medium=referral&utm_campaign=zapier_listing
+- partner_name: Gravity Forms
+  partner: gravity-forms
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/community/integrations/gravity-forms
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://www.gravityforms.com/?utm_campaign=partners&utm_source=zapier-listing-learn-more&utm_medium=free-placement
+- partner_name: Twilio
+  partner: twilio
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/community/integrations/twilio
+  direction: third-party
+  category: Phone & SMS
+  partner_url: https://www.twilio.com/
+- partner_name: Skool
+  partner: skool
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/community/integrations/skool
+  direction: third-party
+  category: Education
+  partner_url: https://skool.com/
+- partner_name: Human in the Loop
+  partner: null
+  partner_match: null
+  partner_candidate: zapier
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/community/integrations/human-in-the-loop
+  direction: third-party
+  category: AI Assistants
+  partner_url: https://zapier.com/blog/human-in-the-loop-guide/
+- partner_name: Dandy
+  partner: dandy
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/community/integrations/dandy
+  direction: third-party
+  category: Marketing
+  partner_url: https://getdandy.com/
+- partner_name: Trello
+  partner: trello
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/community/integrations/trello
+  direction: third-party
+  category: Project Management
+  partner_url: https://trello.com/
+- partner_name: ClickSend SMS
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/community/integrations/clicksend
+  direction: third-party
+  category: Phone & SMS
+  partner_url: https://www.clicksend.com/?utm_source=zapier&utm_medium=referral&utm_campaign=sms-app&utm_term=sms&utm_content=listing
+- partner_name: Whop
+  partner: whop
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/community/integrations/whop
+  direction: third-party
+  category: Commerce
+  partner_url: https://whop.com/
+- partner_name: Giphy
+  partner: giphy
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/community/integrations/giphy
+  direction: third-party
+  category: Images & Design
+  partner_url: http://www.giphy.com/
+- partner_name: Customer Fields
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/community/integrations/customer-fields
+  direction: third-party
+  category: eCommerce
+  partner_url: https://customerfields.com/
+- partner_name: Wicked Reports
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/community/integrations/wicked-reports
+  direction: third-party
+  category: Marketing Automation
+  partner_url: http://wickedreports.com/
+- partner_name: Lone Wolf Relationships
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/community/integrations/lone-wolf-relationships
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: https://lwolf.com/
+- partner_name: Billit.io
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/community/integrations/billitio
+  direction: third-party
+  category: Accounting
+  partner_url: https://billit.io/
+- partner_name: B2B Generator
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/community/integrations/b2b-generator
+  direction: third-party
+  category: Product Management
+  partner_url: https://www.cutting-edgesolutions.com/
+- partner_name: Stack AI
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/community/integrations/stack-ai
+  direction: third-party
+  category: AI Models
+  partner_url: https://www.stack-ai.com/
+templates:
+- title: Create records in Airtable when member changes occur in Community
+  url: https://zapier.com/apps/airtable/integrations/community/1623636/create-records-in-airtable-when-member-changes-occur-in-community
+  apps:
+  - community
+  - airtable
+- title: '"create Google Sheets rows for new messages received in Community"'
+  url: https://zapier.com/apps/community/integrations/google-sheets/255579117/create-google-sheets-rows-for-new-messages-received-in-community
+  apps:
+  - community
+  - google-sheets
+- title: Create Community members from new or updated Google Sheets rows
+  url: https://zapier.com/apps/community/integrations/google-sheets/1188600/create-community-members-from-new-or-updated-google-sheets-rows
+  apps:
+  - google-sheets
+  - community
+- title: Create subscribers and custom events in Mailchimp for new Community members
+  url: https://zapier.com/apps/community/integrations/mailchimp/1119242/create-subscribers-and-custom-events-in-mailchimp-for-new-community-members
+  apps:
+  - community
+  - formatter
+  - mailchimp
+- title: Add new Kajabi purchases as members to a Community in Community via phone number
+  url: https://zapier.com/apps/community/integrations/kajabi/1596978/add-new-kajabi-purchases-as-members-to-a-community-in-community-via-phone-number
+  apps:
+  - kajabi
+  - community
+- title: Find ActiveCampaign contacts and send messages in Community from new Eventbrite registrants
+  url: https://zapier.com/apps/community/integrations/eventbrite/1117503/find-activecampaign-contacts-and-send-messages-in-community-from-new-eventbrite-registrants
+  apps:
+  - eventbrite
+  - activecampaign
+  - community
+- title: Send channel messages in Slack when new messages are received in Community
+  url: https://zapier.com/apps/community/integrations/slack/1766384/send-channel-messages-in-slack-when-new-messages-are-received-in-community
+  apps:
+  - community
+  - slack
+- title: Add newly-changed Community members to ActiveCampaign and to communities in Community
+  url: https://zapier.com/apps/community/integrations/community/1116537/add-newly-changed-community-members-to-activecampaign-and-to-communities-in-community
+  apps:
+  - community
+  - filter
+  - activecampaign
+- title: Add members to Community communities from new ActiveCampaign tags
+  url: https://zapier.com/apps/activecampaign/integrations/community/1117470/add-members-to-community-communities-from-new-activecampaign-tags
+  apps:
+  - activecampaign
+  - community
+- title: Remove members from Community communities with new ActiveCampaign tags
+  url: https://zapier.com/apps/activecampaign/integrations/community/1117497/remove-members-from-community-communities-with-new-activecampaign-tags
+  apps:
+  - activecampaign
+  - community
+- title: Create Google Sheets rows for new member changes in Community
+  url: https://zapier.com/apps/community/integrations/google-sheets/1119806/create-google-sheets-rows-for-new-member-changes-in-community
+  apps:
+  - community
+  - google-sheets
+- title: Add or update newly-changed Community members and create records in Ortto
+  url: https://zapier.com/apps/community/integrations/community/1119845/add-or-update-newly-changed-community-members-and-create-records-in-ortto
+  apps:
+  - community
+  - ortto
+template_total: 77
