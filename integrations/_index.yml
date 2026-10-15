@@ -212,7 +212,6 @@
   arazzo: null
 - slug: community-clicksend-sms
   label: ClickSend SMS
-  partner: clicksend
   partner_name: ClickSend SMS
   category: Phone & SMS
   type: marketplace
@@ -220,7 +219,7 @@
   channel: ipaas-usage
   evidence: https://zapier.com/apps/community/integrations/clicksend
   source: edge
-  status: pending-generation
+  status: pending-partner-spec
   arazzo: null
 - slug: community-whop
   label: Whop
@@ -311,4 +310,29 @@
   evidence: https://zapier.com/apps/community/integrations/stack-ai
   source: edge
   status: pending-partner-spec
+  arazzo: null
+- slug: community-zapier
+  label: Zapier
+  partner: zapier
+  partner_name: Zapier
+  type: marketplace
+  marketplace: zapier-directory
+  channel: ipaas-listing
+  evidence: https://zapier.com/apps/community/integrations
+  source: edge
+  relationship: ipaas-bridge
+  contract_reference:
+    register: Zapier app directory (zapier.com/api/v4/apps)
+    spec_file: null
+    role: ipaas-connector:zapier
+    registered_name: Community
+    matched_domain: community.com
+    matched_by: domain
+    detected_by: sweep-workflow-automation.py
+    detected: '2026-10-15'
+    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
+    app_slug: community
+    beta: false
+    builder: unknown (not in the directory record)
+  status: pending-generation
   arazzo: null
