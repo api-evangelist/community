@@ -62,6 +62,11 @@ paths:
                   override_quiet_hours: true
 components:
   schemas:
+    String400:
+      type: string
+      allOf:
+      - $ref: '#/components/schemas/NonEmptyString'
+      - maxLength: 400
     NumberString:
       type: string
       pattern: ^\d+$
@@ -72,11 +77,6 @@ components:
       - sms
       - whatsapp
       default: sms
-    String400:
-      type: string
-      allOf:
-      - $ref: '#/components/schemas/NonEmptyString'
-      - maxLength: 400
     message_send:
       type: object
       required:
@@ -91,16 +91,16 @@ components:
           $ref: '#/components/schemas/String400'
         override_quiet_hours:
           $ref: '#/components/schemas/Boolean'
-    Boolean:
-      type: boolean
-    NonEmptyString:
-      type: string
-      pattern: \S
     PhoneNumber:
       description: include country code
       type: string
       allOf:
       - $ref: '#/components/schemas/NumberString'
+    NonEmptyString:
+      type: string
+      pattern: \S
+    Boolean:
+      type: boolean
   securitySchemes:
     bearerAuth:
       type: http
