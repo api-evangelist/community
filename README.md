@@ -64,6 +64,150 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Community is a company surfaced as a portfolio company of techstars and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Community is a conversational messaging platform that lets brands, creators, artists, sports teams, media companies, and political organizations reach their audiences directly over SMS, MMS, WhatsApp, Apple Messages for Business, and RCS. Founded in 2019 and remote-first, Community pairs a campaign-and-flows product with a developer surface: an Async REST API to send Direct Messages, create and update members, set custom member data, manage subcommunities (tags), and opt members out; a Data Export API for member, campaign, and link analytics snapshots; and outbound webhooks for inbound/outbound messages and member lifecycle events. API access is provisioned per account by the Community team rather than self-serve.
 
-Backed by: techstars — https://community.com/
+**Areas:** Messaging · SMS · Communications · Marketing · Creators · Webhook · Company
+
+## Community on APIs.io
+
+Everything profiled for Community is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/community/](https://apis.io/providers/community/)** — or go straight to one of the APIs or properties below.
+
+### APIs (4)
+
+- [Community Data Export API](https://apis.io/apis/community/community-data-export-api/) — Community's Data Export API allows programmatic retrieval of account data in CSV or JSON formats, including member detail, campaign performance, link click…
+- [Community Member Data API](https://apis.io/apis/community/community-member-data-api/) — The member-data API from Community — 4 operation(s) for member-data.
+- [Community Messaging API](https://apis.io/apis/community/community-messaging-api/) — The messaging API from Community — 1 operation(s) for messaging.
+- [Community Tags API](https://apis.io/apis/community/community-tags-api/) — The tags API from Community — 4 operation(s) for tags.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Community Webhooks](https://apis.io/asyncapis/community/community-webhooks/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [community](https://apis.io/servers/community/community/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Community Agentic Access](https://apis.io/agentic-access/community/community-agentic-access/)
+
+#### Collections (3)
+
+Postman and Open Collection request collections.
+
+- [Async REST member-data API](https://apis.io/collections/community/open-community-member-data-api/)
+- [Async REST member-data messaging API](https://apis.io/collections/community/open-community-messaging-api/)
+- [Async REST member-data tags API](https://apis.io/collections/community/open-community-tags-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Community Async Overlay](https://apis.io/overlays/community/community-async-overlay/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Community Authentication](https://apis.io/security/community/community-authentication/)
+- [Community Domain Security](https://apis.io/security/community/community-domain-security/)
+- [Community Trust Center](https://apis.io/security/community/community-trust-center/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Community Scopes](https://apis.io/scopes/community/community-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Community Plans Pricing](https://apis.io/plans/community/community-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Community Rate Limits](https://apis.io/rate-limits/community/community-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://community.com/)
+- [Documentation](https://developer.community.com/docs)
+- [Getting started](https://developer.community.com/reference/getting-started-with-your-api)
+- [API reference](https://developer.community.com/reference/getting-started-with-your-api)
+- [Pricing](https://community.com/pricing)
+- [Sign up](https://community.com/signup/book-a-demo)
+- [Support](https://community.com/faq)
+- [Blog](https://community.com/blog)
+- [Compliance](https://trust.community.com/)
+- [Terms of service](https://community.com/legal/terms)
+- [Privacy policy](https://community.com/legal/privacy-policy)
+
+## API Evangelist rating
+
+**Kin Score 54.1** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 54.2 |
+| Contract governance | 4.5 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 44.6 |
+| Access clarity | 92.1 |
+
+**Agent readiness 31.9** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | yes |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | documented (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 39.2** — Telecommunications
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/community/](https://apis.io/providers/community/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Community: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/community/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
